@@ -1,1 +1,26 @@
-<p>trip-form works!</p>
+<div class="container">
+    <form (ngSubmit)="onSubmit(tripForm)" #tripForm="ngForm">
+        <div class="form-group">
+            <label for="address">Start Address</label>
+            <input class="form-control" type="text" name="address" id="trip-address" [(ngModel)]="trip.address" #address="ngModel" placeholder="1234 Main St." required>
+            <div *ngIf="tripForm.controls['address'].invalid && tripForm.controls['address'].touched">
+                <span *ngIf="tripForm.controls['address'].errors?.required" class="help-inline">Address is required</span>  
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="hours">Hour of Driving per day</label>
+            <input class="form-control" type="text" name="hours" id="trip-hours" [(ngModel)]="trip.hours" #hours="ngModel" placeholder="2-8" required>
+            <div *ngIf="tripForm.controls['hours'].invalid && tripForm.controls['hours'].touched">
+                <span *ngIf="tripForm.controls['hours'].errors?.required" class="help-inline">Hours Driving is required</span>  
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="days">Length of trip in days</label>
+            <input class="form-control" type="text" name="days" id="trip-address" [(ngModel)]="trip.days" #days="ngModel" placeholder="2 - 7" required>
+            <div *ngIf="tripForm.controls['days'].invalid && tripForm.controls['days'].touched">
+                <span *ngIf="tripForm.controls['days'].errors?.required" class="help-inline">number of days is required</span>  
+            </div>
+        </div>
+        
+    </form>
+</div>

@@ -1,4 +1,4 @@
-export interface getTripOptions{
+export interface TripOptions{
     startAddress: string;
     northTrip: string;
     southTrip: string;
