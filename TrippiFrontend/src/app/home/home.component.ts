@@ -12,14 +12,6 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(private trippiService: ApiServiceService, private auth: AuthService, private router: Router) { }
-
-  isLoggedIn: boolean = false;
-
-  user: user = {
-    username: ''
-  }
-
-  authuser: string | undefined = '';
   
   ngOnInit(): void {
     

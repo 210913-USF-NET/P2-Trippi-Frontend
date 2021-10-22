@@ -1,0 +1,15 @@
+<div class="card mx-auto w-50">
+    <h4 class="card-header"> Friends </h4>
+    <div class="card-body">
+        <div class="row w-100">
+            <div *ngIf="(user1.friends.length !== 0); else noFriends" class="col-md-8">
+                <ul *ngFor="let friend of user1.friends">
+                    <li>{{userName(friend.friendId)}}</li>
+                </ul>
+            </div>
+            <ng-template #noFriends>
+                <p>You got no friends yet. Please add friends from suggestions</p>
+            </ng-template>
+        </div>
+    </div>
+</div>

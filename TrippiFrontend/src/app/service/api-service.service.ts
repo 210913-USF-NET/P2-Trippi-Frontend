@@ -45,6 +45,17 @@ export class ApiServiceService {
       
     });
   }
+
+  getUsers(): Promise<user[]>
+  {
+    return this.http.get<user[]>(this.rootUrl).toPromise();
+  }
+
+  getOneUser(id: number): Promise<user>
+  {
+    return this.http.get<user>(this.rootUrl + "/" + id).toPromise();
+  }
+
   setTrip( tripForm: tripStart) {      
     this.tripStart = tripForm;  
   }  

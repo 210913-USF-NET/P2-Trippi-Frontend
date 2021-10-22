@@ -19,7 +19,8 @@ export class AuthComponent implements OnInit {
   isLoggedIn: boolean = false;
 
   user: user = {
-    username: ''
+    username: '',
+    friends: []
   }
 
   authuser: string | undefined = '';

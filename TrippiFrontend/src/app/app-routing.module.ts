@@ -5,6 +5,7 @@ import { TripFormComponent } from './trip-form/trip-form.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { RouteDisplayComponent } from './route-display/route-display.component';
+import { FriendsComponent } from './friends/friends.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
     path: 'route',
     component: RouteDisplayComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'friends',
+    component: FriendsComponent
   },
   {
     path: 'home',
