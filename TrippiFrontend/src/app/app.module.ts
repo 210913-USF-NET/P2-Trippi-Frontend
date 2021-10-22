@@ -9,6 +9,7 @@ import { TripFormComponent } from './trip-form/trip-form.component';
 import { HomeComponent } from './home/home.component';
 import { RouteDisplayComponent } from './route-display/route-display.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,12 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {path: 'route-display', component: RouteDisplayComponent},
+      {path: 'trip-forms', component: TripFormComponent},
+      {path: '', component: HomeComponent},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
