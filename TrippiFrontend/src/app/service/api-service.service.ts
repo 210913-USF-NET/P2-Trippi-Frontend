@@ -42,4 +42,8 @@ export class ApiServiceService {
     });
   }
 
+  getTrips() : Promise<[]>
+  {
+    return this.http.get<[]>(this.rootUrl + "/Trip").toPromise();
+  }
 }

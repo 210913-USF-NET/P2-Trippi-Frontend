@@ -12,6 +12,7 @@ import { RouteDisplayComponent } from './route-display/route-display.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth/auth.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,11 @@ import { AuthComponent } from './auth/auth.component';
       domain: environment.authDomain,
       clientId: environment.authClientId
     })
+    RouterModule.forRoot([
+      {path: 'route-display', component: RouteDisplayComponent},
+      {path: 'trip-forms', component: TripFormComponent},
+      {path: '', component: HomeComponent},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

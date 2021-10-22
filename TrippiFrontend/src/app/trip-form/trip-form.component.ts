@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TripFormComponent implements OnInit {
 
-  constructor(private apiService: ApiServiceService, private currentRoute: ActivatedRoute, private router: Router) { }
+  constructor(private currentRoute: ActivatedRoute, private router: Router) { }
   trip : tripStart = {
     address: '',
     hours: 0,

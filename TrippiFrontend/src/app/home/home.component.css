@@ -1,4 +1,4 @@
-@import url("https://fonts.google.com/specimen/Lobster#glyphs");
+@import url("https://fonts.googleapis.com/css?family=Lobster");
 
 .container {
     top: 50%;
@@ -8,5 +8,11 @@
     position: fixed;
 } 
 p {
-font-family: 'Lobster', sans-serif; 
+font-family: "Lobster", sans-serif; 
+}
+h2 {
+    font-family: "Lobster", sans-serif; 
+}
+button{
+    font-family: "Lobster", sans-serif; 
 }
