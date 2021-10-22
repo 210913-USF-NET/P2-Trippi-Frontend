@@ -11,16 +11,16 @@ import { ApiServiceService } from '../service/api-service.service';
 export class RouteDisplayComponent implements OnInit {
 
   constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute) { }
-
   LatLong: number[] = [];
-  public  trip : tripStart = {
-    address: '',
-    hours: 0,
-    days: 0
-  }
+  public newtrip : tripStart = {
+  address: '',
+  hours: 0,
+  days: 0
+}
   ngOnInit(): void {
-    let tripStart =  this.ApiService.getTrip()
-    this.ApiService.getRouteOptions(tripStart).then(result => {
+    this.newtrip = this.ApiService.getTrip();
+    console.log(this.newtrip)
+    this.ApiService.getRouteOptions(this.newtrip).then(result => {
       this.LatLong = result;
       console.log(this.LatLong);
     })

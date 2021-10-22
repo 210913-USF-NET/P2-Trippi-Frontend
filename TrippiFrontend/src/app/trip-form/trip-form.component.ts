@@ -22,7 +22,6 @@ export class TripFormComponent implements OnInit {
   }
 onSubmit(tripForm: NgForm){
   if(tripForm.valid){
-    console.log(this.trip)
     this.apiSerive.setTrip(this.trip)
     this.router.navigate(['route'])
     }
