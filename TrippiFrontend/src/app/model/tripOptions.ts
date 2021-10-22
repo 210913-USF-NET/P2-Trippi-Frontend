@@ -1,3 +1,4 @@
+
 export interface tripOptions{
     startAddress: string;
     northTrip: string;
