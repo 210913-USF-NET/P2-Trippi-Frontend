@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { TripFormComponent } from './trip-form/trip-form.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from '@auth0/auth0-angular';
 
 const routes: Routes = [
   {
     path: 'trips',
-    component: TripFormComponent
+    component: TripFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'form',
-    component: TripFormComponent
+    component: TripFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'home',

@@ -31,12 +31,12 @@ import { RouterModule } from '@angular/router';
     AuthModule.forRoot({
       domain: environment.authDomain,
       clientId: environment.authClientId
-    })
+    }),
     RouterModule.forRoot([
       {path: 'route-display', component: RouteDisplayComponent},
       {path: 'trip-forms', component: TripFormComponent},
       {path: '', component: HomeComponent},
-    ]),
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

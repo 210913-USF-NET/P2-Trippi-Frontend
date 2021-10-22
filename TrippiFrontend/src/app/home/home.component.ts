@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     
     }
-  }
+  
   onSubmit(): void{
     this.router.navigate(['form'])
     console.log(this.router);
