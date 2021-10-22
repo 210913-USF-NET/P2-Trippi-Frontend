@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Lobster");
+@import url("https://fonts.googleapis.com/css?family=Caveat");
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
 
 .container {
     top: 50%;
@@ -8,10 +9,10 @@
     position: fixed;
 } 
 p {
-font-family: "Lobster", sans-serif; 
+font-family: "Permanent Marker", sans-serif; 
 }
 h2 {
-    font-family: "Lobster", sans-serif; 
+    font-family: "Permanent Marker", sans-serif; 
 }
 button{
     font-family: "Lobster", sans-serif; 
