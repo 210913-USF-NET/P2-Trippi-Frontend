@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ApiServiceService } from '../service/api-service.service';
 import { NgForm, NgModel } from '@angular/forms';
 import { tripStart } from '../model/tripStart';
@@ -21,10 +22,10 @@ export class TripFormComponent implements OnInit {
   }
 onSubmit(tripForm: NgForm){
   if(tripForm.valid){
-    this.apiService.getRouteOptions(this.trip).then((res) => {
-      this.router.navigate(['routes' + tripForm])
-    })
+    console.log(this.trip)
+      this.router.navigate(['/route-display' + this.trip])
+    }
   }
     
-}
+
 }

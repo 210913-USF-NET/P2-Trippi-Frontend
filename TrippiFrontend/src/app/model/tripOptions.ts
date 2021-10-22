@@ -1,6 +1,5 @@
 
-export interface TripOptions{
-
+export interface tripOptions{
     startAddress: string;
     northTrip: string;
     southTrip: string;
