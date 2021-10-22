@@ -10,6 +10,8 @@ import { TripFormComponent } from './trip-form/trip-form.component';
 import { HomeComponent } from './home/home.component';
 import { RouteDisplayComponent } from './route-display/route-display.component';
 import { AppRoutingModule } from './app-routing.module';
+import { environment } from 'src/environments/environment';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,18 @@ import { AppRoutingModule } from './app-routing.module';
     NavbarComponent,
     TripFormComponent,
     HomeComponent,
-    RouteDisplayComponent
+    RouteDisplayComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AuthModule.forRoot({
+      domain: environment.authDomain,
+      clientId: environment.authClientId
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,32 @@
+<ul *ngIf="(auth.isAuthenticated$ | async); else loggedIn" class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/trip-forms">Start Tripping</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/">Trip History</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/">Friends</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/">Reviews</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="auth.logout({ returnTo: rootUrl })">Logout</a>
+    </li>
+</ul>
+
+<ng-template #loggedIn>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="auth.loginWithRedirect()">Login</a>
+        </li>
+    </ul>
+</ng-template>
+
