@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from '../service/api-service.service';
 
 @Component({
   selector: 'app-route-display',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RouteDisplayComponent implements OnInit {
 
-  constructor() { }
+  constructor(ApiService: ApiServiceService) { }
 
   ngOnInit(): void {
+    let tripStart = {address:"50 South Street, Franklin, MA, 02038", hours: 3, days: 2}
+    // // this.ApiService.getRouteOptions(tripStart).then(result => {
+    //   console.log(result);
+    // })
   }
 
 }
