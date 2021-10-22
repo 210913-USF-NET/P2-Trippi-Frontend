@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { tripStart } from '../model/tripStart';
 import { ApiServiceService } from '../service/api-service.service';
 
 @Component({
@@ -12,9 +13,13 @@ export class RouteDisplayComponent implements OnInit {
   constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute) { }
 
   LatLong: number[] = [];
-
+  public  trip : tripStart = {
+    address: '',
+    hours: 0,
+    days: 0
+  }
   ngOnInit(): void {
-    let tripStart = {address:"50 South Street Franklin MA 02038", hours: 3, days: 2}
+    let tripStart =  this.ApiService.getTrip()
     this.ApiService.getRouteOptions(tripStart).then(result => {
       this.LatLong = result;
       console.log(this.LatLong);
