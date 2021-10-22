@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     
   }
   onSubmit(): void{
-    this.router.navigate(['trip/form'])
+    this.router.navigate(['form'])
     console.log(this.router);
   }
 
