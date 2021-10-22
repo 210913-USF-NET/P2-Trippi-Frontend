@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; 
 import { tripStart } from '../model/tripStart';
+
 import { tripOptions } from '../model/tripOptions';
+
 
 @Injectable({
   providedIn: 'root'
