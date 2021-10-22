@@ -10,7 +10,7 @@ import { tripOptions } from '../model/tripOptions';
 })
 export class ApiServiceService {
 
-  rootUrl: string =  'https://p2trippiapi.azurewebsites.net/api/User';
+  rootUrl: string =  'https://p2trippiapi.azurewebsites.net/api/';
   users : user[] = [];
   counter: number = 0;
   private tripStart: tripStart ={
