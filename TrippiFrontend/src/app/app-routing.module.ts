@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TripFormComponent } from './trip-form/trip-form.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { RouteDisplayComponent } from './route-display/route-display.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,11 @@ const routes: Routes = [
   {
     path: 'form',
     component: TripFormComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'route',
+    component: RouteDisplayComponent,
     canActivate: [AuthGuard]
   },
   {

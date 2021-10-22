@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { tripStart } from '../model/tripStart';
 import { ApiServiceService } from '../service/api-service.service';
 import {} from 'googlemaps';
 
@@ -17,19 +18,25 @@ export class RouteDisplayComponent implements OnInit {
   map!: google.maps.Map;
 
   LatLong: number[] = [];
-
+  public newtrip : tripStart = {
+  address: '',
+  hours: 0,
+  days: 0
+}
   ngOnInit(): void {
-    // let tripStart = {address:"50 South Street Franklin MA 02038", hours: 3, days: 2}
-    // this.ApiService.getRouteOptions(tripStart).then(result => {
-    //   this.LatLong = result;
-    //   console.log(this.LatLong);
-    // });
     const mapProperties = {
       center: new google.maps.LatLng(35.2271, -80.8431),
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
+
+    this.newtrip = this.ApiService.getTrip();
+    console.log(this.newtrip)
+    this.ApiService.getRouteOptions(this.newtrip).then(result => {
+      this.LatLong = result;
+      console.log(this.LatLong);
+    })
   }
 
 }

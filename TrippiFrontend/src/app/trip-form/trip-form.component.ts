@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TripFormComponent implements OnInit {
 
-  constructor(private currentRoute: ActivatedRoute, private router: Router) { }
+  constructor(private currentRoute: ActivatedRoute, private router: Router, private apiSerive: ApiServiceService) { }
   trip : tripStart = {
     address: '',
     hours: 0,
@@ -22,8 +22,8 @@ export class TripFormComponent implements OnInit {
   }
 onSubmit(tripForm: NgForm){
   if(tripForm.valid){
-    console.log(this.trip)
-      this.router.navigate(['/route-display' + this.trip])
+    this.apiSerive.setTrip(this.trip)
+    this.router.navigate(['route'])
     }
   }
     

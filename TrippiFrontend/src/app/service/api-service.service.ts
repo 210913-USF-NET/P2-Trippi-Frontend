@@ -10,10 +10,14 @@ import { tripOptions } from '../model/tripOptions';
 })
 export class ApiServiceService {
 
-  rootUrl: string =  'https://p2trippiapi.azurewebsites.net/api/User';
+  rootUrl: string =  'https://p2trippiapi.azurewebsites.net/api/';
   users : user[] = [];
   counter: number = 0;
-
+  private tripStart: tripStart ={
+    address: '',
+    hours: 0,
+    days: 0,
+}
   constructor(private http: HttpClient) { }
 
   getRouteOptions(tripStart: tripStart) : Promise<[]>
@@ -41,9 +45,11 @@ export class ApiServiceService {
       
     });
   }
-
-  getTrips() : Promise<[]>
-  {
-    return this.http.get<[]>(this.rootUrl + "/Trip").toPromise();
-  }
+  setTrip( tripForm: tripStart) {      
+    this.tripStart = tripForm;  
+  }  
+  
+  getTrip() {  
+    return this.tripStart ;  
+  }  
 }
