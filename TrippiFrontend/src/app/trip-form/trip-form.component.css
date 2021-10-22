@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+
 .container {
     top: 50%;
     left: 50%;
@@ -5,3 +7,12 @@
     background-color: rgba(255, 250, 244, 0.842);
     position: fixed;
 } 
+p {
+font-family: "Permanent Marker", sans-serif; 
+}
+.form-group {
+    font-family: "Permanent Marker", sans-serif; 
+}
+.help-inline {
+    color: #ee0000;
+}

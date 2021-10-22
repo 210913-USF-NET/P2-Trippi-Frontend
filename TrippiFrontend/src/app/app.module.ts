@@ -4,11 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { AuthModule } from '@auth0/auth0-angular';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TripFormComponent } from './trip-form/trip-form.component';
 import { HomeComponent } from './home/home.component';
 import { RouteDisplayComponent } from './route-display/route-display.component';
 import { AppRoutingModule } from './app-routing.module';
+import { environment } from 'src/environments/environment';
+import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -17,18 +20,23 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     TripFormComponent,
     HomeComponent,
-    RouteDisplayComponent
+    RouteDisplayComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    AuthModule.forRoot({
+      domain: environment.authDomain,
+      clientId: environment.authClientId
+    }),
     RouterModule.forRoot([
       {path: 'route-display', component: RouteDisplayComponent},
       {path: 'trip-forms', component: TripFormComponent},
       {path: '', component: HomeComponent},
-    ]),
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
