@@ -9,7 +9,7 @@ import { ApiServiceService } from '../service/api-service.service';
 })
 export class RouteDisplayComponent implements OnInit {
 
-  constructor(ApiService: ApiServiceService, private currentRoute: ActivatedRoute) { }
+  constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     let tripStart = {address:"50 South Street, Franklin, MA, 02038", hours: 3, days: 2}
