@@ -1,12 +1,28 @@
 <div class="container">
-    <h1>Here are your Route Options</h1>
-    <table>
+    <h1>Here are your Destination Options</h1>
+    <table class="table">
         <thead>
             <th>Direction</th>
+            <th>Destination</th>
             <th>Route</th>
         </thead>
         <tbody>
-            
+            <tr>
+                <td>North</td>
+                <td>{{LatLong[0]}}</td>
+            </tr>
+            <tr>
+                <td>East</td>
+                <td>{{LatLong[2]}}</td>
+            </tr>
+            <tr>
+                <td>South</td>
+                <td>{{LatLong[1]}}</td>
+            </tr>
+            <tr>
+                <td>West</td>
+                <td>{{LatLong[3]}}</td>
+            </tr>
         </tbody>
     </table>
 </div>
