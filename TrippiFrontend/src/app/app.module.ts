@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     TripFormComponent,
     HomeComponent,
     RouteDisplayComponent,
-    AuthComponent
+    AuthComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { RouterModule } from '@angular/router';
       {path: 'route-display', component: RouteDisplayComponent},
       {path: 'trip-forms', component: TripFormComponent},
       {path: '', component: HomeComponent},
-    ])
+    ]),
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
