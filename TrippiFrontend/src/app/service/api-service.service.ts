@@ -18,7 +18,7 @@ export class ApiServiceService {
 
   getRouteOptions(tripStart: tripStart) : Promise<[]>
   {
-    return this.http.get<[]>(this.rootUrl + `route/${tripStart.address}  ${tripStart.hours} ${tripStart.days}`).toPromise();
+    return this.http.get<[]>(this.rootUrl + `route/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
   }
 
   addUser(user:user){
