@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from '../service/api-service.service';
+
 import { AuthService } from '@auth0/auth0-angular';
 import { user } from '../model/user';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private trippiService: ApiServiceService, private auth: AuthService, private router: Router) { }
+  constructor( private auth: AuthService, private router: Router) { }
 
   isLoggedIn: boolean = false;
 

@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     RouteDisplayComponent,
     AuthComponent,
+    GooglePlaceModule
   
   ],
   imports: [
@@ -34,11 +36,7 @@ import { RouterModule } from '@angular/router';
       domain: environment.authDomain,
       clientId: environment.authClientId
     }),
-    RouterModule.forRoot([
-      {path: 'route-display', component: RouteDisplayComponent},
-      {path: 'trip-forms', component: TripFormComponent},
-      {path: '', component: HomeComponent},
-    ]),
+    RouterModule
    
   ],
   providers: [],

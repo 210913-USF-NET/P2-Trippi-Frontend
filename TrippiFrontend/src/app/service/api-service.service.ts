@@ -14,7 +14,7 @@ export class ApiServiceService {
   users : user[] = [];
   counter: number = 0;
   private tripStart: tripStart ={
-    address: '',
+    formattedaddress: '',
     hours: 0,
     days: 0,
 }
@@ -22,15 +22,19 @@ export class ApiServiceService {
 
   getRouteOptions(tripStart: tripStart) : Promise<[]>
   {
-    return this.http.get<[]>(this.rootUrl + `route/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
+    return this.http.get<[]>(this.rootUrl + `route/${tripStart.formattedaddress} ${tripStart.hours} ${tripStart.days}`).toPromise();
   }
+
 
   getPOIs(tripStart: tripStart) : Promise<[]>
   {
-    return this.http.get<[]>(this.rootUrl + `POI/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
+    return this.http.get<[]>(this.rootUrl + `POI/${tripStart.formattedaddress} ${tripStart.hours} ${tripStart.days}`).toPromise();
   }
 
-  addUser(user:user){
+
+  addUser(user:user)
+  {
+
     this.http.get<user[]>(this.rootUrl).toPromise().then(result => {
       this.users = result;
       for(let user2 of this.users){

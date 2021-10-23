@@ -21,7 +21,7 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
 
   LatLong: number[][] = [];
   public newtrip : tripStart = {
-  address: '',
+    formattedaddress: '',
   hours: 0,
   days: 0
   }
