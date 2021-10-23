@@ -1,6 +1,6 @@
 export interface tripStart
 {
-    address: string;
+    formattedaddress: string;
     hours: number;
     days: number;
 }
