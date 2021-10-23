@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { user } from '../model/user';
 import { Router } from '@angular/router';
+import { ApiServiceService } from '../service/api-service.service';
 
 @Component({
   selector: 'app-home',
@@ -11,19 +12,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-<<<<<<< HEAD
   constructor(private trippiService: ApiServiceService, private auth: AuthService, private router: Router) { }
-=======
-  constructor( private auth: AuthService, private router: Router) { }
+
 
   isLoggedIn: boolean = false;
 
   user: user = {
-    username: ''
+    username: '',
+    id: 0,
+    friends: []
   }
 
   authuser: string | undefined = '';
->>>>>>> d7f8892fedd7123f0a48cc29125a6ab61d6b9e21
   
   ngOnInit(): void {
     

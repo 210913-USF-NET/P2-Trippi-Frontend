@@ -13,7 +13,6 @@ declare const google: any;
 export class RouteDisplayComponent implements OnInit, AfterViewInit{
 
   constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute) { 
-    this.newtrip = this.ApiService.getTrip();
   }
 
   map: any;
@@ -21,7 +20,7 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
 
   LatLong: number[][] = [];
   public newtrip : tripStart = {
-    formattedaddress: '',
+  address: '',
   hours: 0,
   days: 0
   }
@@ -39,7 +38,8 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
     }
   
   ngOnInit(): void {
-    console.log(this.newtrip)
+    this.newtrip = this.ApiService.getTrip();
+    console.log("ngOnInIt" + this.newtrip)
     this.ApiService.getPOIs(this.newtrip).then(result => {
       this.Addresses = result;
       console.log(this.Addresses);
