@@ -1,6 +1,12 @@
 .card {
-    top: 30%;
-    left: 50%;
+    /* top: 70%; */
+    /* left: 50%;
     transform: translate(-50%, -50%);
-    position: fixed;
+    position: fixed; */
+    height: 370px;
+    margin: 30px auto;
 } 
+.scrollable{
+    overflow-y: auto;
+    max-height: 300px;
+}

@@ -19,6 +19,7 @@ export class AuthComponent implements OnInit {
   isLoggedIn: boolean = false;
 
   user: user = {
+    id: 0,
     username: '',
     friends: []
   }
