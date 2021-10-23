@@ -14,7 +14,13 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
 
   constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute) { 
   }
-
+  
+  
+  marker1: any;
+  markerN: any;
+  markerS: any;
+  markerE: any;
+  markerW: any;
   map: any;
   @ViewChild('mapElement') mapElement: any;
 
@@ -32,14 +38,43 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
       this.LatLong = result;
       this.map = new google.maps.Map(this.mapElement.nativeElement, {
         center: { lat: this.LatLong[4][0], lng: this.LatLong[4][1]},
-        zoom: 8 
+        zoom: 8,
       });
+      this.marker1 = new google.maps.Marker({
+        position: { lat: this.LatLong[4][0], lng: this.LatLong[4][1]},
+        title: "Starting Address",
+      });
+      this.markerN = new google.maps.Marker({
+        position: { lat: this.LatLong[0][0], lng: this.LatLong[0][1]},
+        title: "North",
+        label: "N"
+      });
+      this.markerS = new google.maps.Marker({
+        position: { lat: this.LatLong[1][0], lng: this.LatLong[1][1]},
+        title: "South",
+        label: "S"
+      });
+      this.markerE = new google.maps.Marker({
+        position: { lat: this.LatLong[2][0], lng: this.LatLong[2][1]},
+        title: "East",
+        label: "E"
+      });
+      this.markerW = new google.maps.Marker({
+        position: { lat: this.LatLong[3][0], lng: this.LatLong[3][1]},
+        title: "West",
+        label: "W"
+      });
+      this.marker1.setMap(this.map);
+      this.markerN.setMap(this.map);
+      this.markerS.setMap(this.map);
+      this.markerE.setMap(this.map);
+      this.markerW.setMap(this.map);
     });
-    }
-  
+  }
+
   ngOnInit(): void {
     this.newtrip = this.ApiService.getTrip();
-    console.log("ngOnInIt" + this.newtrip)
+    console.log("ngOnInIt" + this.newtrip);
     this.ApiService.getPOIs(this.newtrip).then(result => {
       this.Addresses = result;
       console.log(this.Addresses);
