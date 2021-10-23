@@ -13,7 +13,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
+<<<<<<< HEAD
 import { FriendsComponent } from './friends/friends.component';
+=======
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+>>>>>>> d7f8892fedd7123f0a48cc29125a6ab61d6b9e21
 
 
 @NgModule({
@@ -24,7 +28,11 @@ import { FriendsComponent } from './friends/friends.component';
     HomeComponent,
     RouteDisplayComponent,
     AuthComponent,
+<<<<<<< HEAD
     FriendsComponent,
+=======
+    GooglePlaceModule
+>>>>>>> d7f8892fedd7123f0a48cc29125a6ab61d6b9e21
   
   ],
   imports: [
@@ -36,11 +44,7 @@ import { FriendsComponent } from './friends/friends.component';
       domain: environment.authDomain,
       clientId: environment.authClientId
     }),
-    RouterModule.forRoot([
-      {path: 'route-display', component: RouteDisplayComponent},
-      {path: 'trip-forms', component: TripFormComponent},
-      {path: '', component: HomeComponent},
-    ]),
+    RouterModule
    
   ],
   providers: [],

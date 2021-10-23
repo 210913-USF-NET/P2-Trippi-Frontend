@@ -1,0 +1,12 @@
+.container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 250, 244, 0.842);
+    position: fixed;
+} 
+
+.map {
+    height: 300px;
+    width: 300px;
+}

@@ -11,13 +11,14 @@ import { tripOptions } from '../model/tripOptions';
 })
 export class ApiServiceService {
 
+  //Please declare routes like below depending on what you need to pull from the api
   rootUrl: string =  'https://p2trippiapi.azurewebsites.net/api/User';
   rootUrl1: string =  'https://p2trippiapi.azurewebsites.net/api/Friend';
 
   users : user[] = [];
   counter: number = 0;
   private tripStart: tripStart ={
-    address: '',
+    formattedaddress: '',
     hours: 0,
     days: 0,
 }
@@ -25,10 +26,19 @@ export class ApiServiceService {
 
   getRouteOptions(tripStart: tripStart) : Promise<[]>
   {
-    return this.http.get<[]>(this.rootUrl + `route/${tripStart.address}  ${tripStart.hours} ${tripStart.days}`).toPromise();
+    return this.http.get<[]>(this.rootUrl + `route/${tripStart.formattedaddress} ${tripStart.hours} ${tripStart.days}`).toPromise();
   }
 
-  addUser(user:user){
+
+  getPOIs(tripStart: tripStart) : Promise<[]>
+  {
+    return this.http.get<[]>(this.rootUrl + `POI/${tripStart.formattedaddress} ${tripStart.hours} ${tripStart.days}`).toPromise();
+  }
+
+
+  addUser(user:user)
+  {
+
     this.http.get<user[]>(this.rootUrl).toPromise().then(result => {
       this.users = result;
       for(let user2 of this.users){
