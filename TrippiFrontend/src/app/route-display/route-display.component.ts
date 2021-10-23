@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tripStart } from '../model/tripStart';
 import { ApiServiceService } from '../service/api-service.service';
-import {} from 'googlemaps';
+declare const google: any;
 
 @Component({
   selector: 'app-route-display',
@@ -10,33 +10,39 @@ import {} from 'googlemaps';
   styleUrls: ['./route-display.component.css']
 })
 
-export class RouteDisplayComponent implements OnInit {
+export class RouteDisplayComponent implements OnInit, AfterViewInit{
 
-  constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute) { }
+  constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute) { 
+    this.newtrip = this.ApiService.getTrip();
+  }
 
-  @ViewChild('map') mapElement: any;
-  map!: google.maps.Map;
+  map: any;
+  @ViewChild('mapElement') mapElement: any;
 
-  LatLong: number[] = [];
+  LatLong: number[][] = [];
   public newtrip : tripStart = {
   address: '',
   hours: 0,
   days: 0
-}
-  ngOnInit(): void {
-    const mapProperties = {
-      center: new google.maps.LatLng(35.2271, -80.8431),
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
-
-    this.newtrip = this.ApiService.getTrip();
-    console.log(this.newtrip)
-    this.ApiService.getRouteOptions(this.newtrip).then(result => {
-      this.LatLong = result;
-      console.log(this.LatLong);
-    })
   }
 
+  Addresses: string[] = [];
+
+  ngAfterViewInit(): void {
+    this.ApiService.getRouteOptions(this.newtrip).then(result => {
+      this.LatLong = result;
+      this.map = new google.maps.Map(this.mapElement.nativeElement, {
+        center: { lat: this.LatLong[4][0], lng: this.LatLong[4][1]},
+        zoom: 8 
+      });
+    });
+    }
+  
+  ngOnInit(): void {
+    console.log(this.newtrip)
+    this.ApiService.getPOIs(this.newtrip).then(result => {
+      this.Addresses = result;
+      console.log(this.Addresses);
+    });
+  }
 }

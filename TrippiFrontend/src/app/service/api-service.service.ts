@@ -25,6 +25,11 @@ export class ApiServiceService {
     return this.http.get<[]>(this.rootUrl + `route/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
   }
 
+  getPOIs(tripStart: tripStart) : Promise<[]>
+  {
+    return this.http.get<[]>(this.rootUrl + `POI/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
+  }
+
   addUser(user:user){
     this.http.get<user[]>(this.rootUrl).toPromise().then(result => {
       this.users = result;
