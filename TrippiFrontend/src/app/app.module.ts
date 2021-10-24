@@ -15,7 +15,7 @@ import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from './friends/friends.component';
 
-import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+
 
 
 
@@ -39,7 +39,7 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
       clientId: environment.authClientId
     }),
     RouterModule,
-    GooglePlaceModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
