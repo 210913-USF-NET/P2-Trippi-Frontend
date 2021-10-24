@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -15,7 +14,7 @@ import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from './friends/friends.component';
 
-import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+
 
 
 
@@ -39,7 +38,7 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
       clientId: environment.authClientId
     }),
     RouterModule,
-    GooglePlaceModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

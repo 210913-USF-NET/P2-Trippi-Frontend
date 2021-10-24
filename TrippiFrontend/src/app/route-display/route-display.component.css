@@ -1,12 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
 .container {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 250, 244, 0.842);
-    position: fixed;
+    position: absolute;
+    font-family: "Permanent Marker", sans-serif; 
+  
 } 
-
 .map {
-    height: 300px;
-    width: 300px;
+   position: absolute;
+   top: 5%;
+   left: 68%;
+  right: 0px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+    height: 350px;
+    width: 400px;
 }
+tr:hover {
+    background-color: rgb(161, 161, 224); 
+    cursor: pointer;
+    }
+.form-group {
+    font-family: "Permanent Marker", sans-serif; 
+    }
