@@ -1,5 +1,6 @@
 import { AfterContentInit, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { tripPost } from '../model/tripPost';
 import { tripStart } from '../model/tripStart';
 import { ApiServiceService } from '../service/api-service.service';
 declare const google: any;
@@ -30,7 +31,14 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
   hours: 0,
   days: 0
   }
-
+  public postTrip: tripPost = {
+    userId: 16,
+    startLat: 0,
+    startLong: 0,
+    endLat: 0,
+    endLong: 0
+    // rating: number;
+}
   Addresses: string[] = [];
 
   ngAfterViewInit(): void {
@@ -79,5 +87,13 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
       this.Addresses = result;
       console.log(this.Addresses);
     });
+  }
+  selectRoute(address: string, index: number): void{
+    this.postTrip.startLat = this.LatLong[4][0];
+    this.postTrip.startLong = this.LatLong[4][1];
+    this.postTrip.endLat = this.LatLong[index][0];
+    this.postTrip.endLong= this.LatLong[index][1];
+    console.log(this.postTrip)
+    this.ApiService.addTrip(this.postTrip)
   }
 }

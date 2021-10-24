@@ -3,29 +3,29 @@
     <table class="table">
         <thead>
             <th>Direction</th>
-            <th>Destination</th>
-            <th>Route</th>
+            <th>Map</th>
+            <th></th>
         </thead>
         <tbody>
-            <tr>
+            <tr class="row" (click)="selectRoute(Addresses[0], 0)">
                 <td>North</td>
                 <td>{{Addresses[0]}}</td>
-                <td rowspan="4">
-                    <div class="map" #mapElement></div>
-                </td>
             </tr>
-            <tr>
+            <tr class="row" (click)="selectRoute(Addresses[2], 2) ">
                 <td>East</td>
                 <td>{{Addresses[2]}}</td>
             </tr>
-            <tr>
+            <tr class="row" (click)="selectRoute(Addresses[1], 1)">
                 <td>South</td>
                 <td>{{Addresses[1]}}</td>
+                
             </tr>
-            <tr>
+            <tr class="row" (click)="selectRoute(Addresses[3], 3)">
                 <td>West</td>
                 <td>{{Addresses[3]}}</td>
             </tr>
         </tbody>
     </table>
+    <span class="map" #mapElement></span>
 </div>
+

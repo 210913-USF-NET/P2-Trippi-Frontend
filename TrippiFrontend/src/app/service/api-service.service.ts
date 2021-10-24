@@ -5,6 +5,7 @@ import { user } from '../model/user';
 import { friend } from '../model/friend';
 
 import { tripOptions } from '../model/tripOptions';
+import { tripPost } from '../model/tripPost';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,7 @@ export class ApiServiceService {
     hours: 0,
     days: 0,
 }
+  posttrip: tripPost[] = [];
   constructor(private http: HttpClient) { }
 
   getRouteOptions(tripStart: tripStart) : Promise<[]>
@@ -81,4 +83,10 @@ export class ApiServiceService {
   getTrip() {  
     return this.tripStart ;  
   }  
+  addTrip(postTrip: tripPost): Promise<tripPost>
+  {
+    console.log(postTrip)
+    // return this.http.post<tripPost>(this.root + `Trip/${postTrip}`).toPromise();
+   return this.http.post<tripPost>(this.root + "Trip/",  postTrip).toPromise();
+  }
 }
