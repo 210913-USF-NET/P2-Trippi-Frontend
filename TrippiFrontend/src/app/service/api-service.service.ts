@@ -41,18 +41,24 @@ export class ApiServiceService {
 
     this.http.get<user[]>(this.rootUrl).toPromise().then(result => {
       this.users = result;
-      for(let user2 of this.users){
-        if (user2.username === user.username){
-          break;
+      if(this.users)
+      {
+        for(let user2 of this.users){
+          if (user2.username === user.username){
+            break;
+          }
+          else{
+            this.counter++;
+            continue;
+          }
         }
-        else{
-          this.counter++;
-          continue;
+  
+        if(this.counter === this.users.length){
+          console.log(this.users.length);
+          this.http.post<user>(this.rootUrl, user).toPromise();
         }
       }
-
-      if(this.counter === this.users.length){
-        console.log(this.users.length);
+      else{
         this.http.post<user>(this.rootUrl, user).toPromise();
       }
       

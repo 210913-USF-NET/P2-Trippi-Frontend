@@ -33,12 +33,6 @@ friend: friend = {
   friendId: 0
 }
 
-f: friend = {
-  id: 0,
-  userId: 0,
-  friendId: 0
-}
-
 counter: number = 0
 counter1: number = 0
 
@@ -64,32 +58,40 @@ ngOnInit(): void {
         }
 
         for(let notFriend of this.users){
-          for(let userFriend of notFriend.friends){
-            for(let fr of this.user1.friends){
-              if(userFriend.userId !== fr.friendId && userFriend.friendId !== fr.userId){
-                this.counter++;
-                continue;
+          if(this.user1.friends.length !==0){
+            if(notFriend.username !== this.user1.username){
+              for(let userFriend of notFriend.friends){
+                for(let fr of this.user1.friends){
+                  if(userFriend.userId !== fr.friendId && userFriend.friendId !== fr.userId){
+                    this.counter++;
+                    continue;
+                  }
+                  else{
+                    break;
+                  }
+                }
+                if(this.counter === this.user1.friends.length)
+                {
+                  this.counter = 0;
+                  this.counter1++;
+                  continue;
+                }
+                else{
+                  break;
+                }
               }
-              else{
-                break;
+    
+              if(this.counter1 === notFriend.friends.length){
+                this.notFriends.push(notFriend);
+                this.counter1 = 0;
               }
-            }
-            if(this.counter === this.user1.friends.length)
-            {
-              this.counter = 0;
-              this.counter1++;
-              continue;
-            }
-            else{
-              break;
             }
           }
-
-          if(this.counter1 === notFriend.friends.length){
-            this.notFriends.push(notFriend);
-            this.counter1 = 0;
+          else{
+            if(notFriend.username !== this.user1.username){
+              this.notFriends.push(notFriend);
+            }
           }
-
           
         }
 
@@ -126,6 +128,10 @@ ngOnInit(): void {
       })
     }
     
+  }
+
+  goToFriend(name: string):void{
+    this.route.navigateByUrl(`friend/${name}`);
   }
   
 }

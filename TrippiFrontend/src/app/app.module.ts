@@ -13,11 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
-<<<<<<< HEAD
 import { FriendsComponent } from './friends/friends.component';
-=======
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
->>>>>>> d7f8892fedd7123f0a48cc29125a6ab61d6b9e21
+import { FriendprofileComponent } from './friendprofile/friendprofile.component';
 
 
 @NgModule({
@@ -28,11 +26,9 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     HomeComponent,
     RouteDisplayComponent,
     AuthComponent,
-<<<<<<< HEAD
     FriendsComponent,
-=======
-    GooglePlaceModule
->>>>>>> d7f8892fedd7123f0a48cc29125a6ab61d6b9e21
+    FriendprofileComponent,
+    //GooglePlaceModule
   
   ],
   imports: [

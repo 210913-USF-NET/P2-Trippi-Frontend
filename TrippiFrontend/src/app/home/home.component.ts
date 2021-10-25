@@ -11,19 +11,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor(private trippiService: ApiServiceService, private auth: AuthService, private router: Router) { }
-=======
   constructor( private auth: AuthService, private router: Router) { }
 
   isLoggedIn: boolean = false;
 
   user: user = {
-    username: ''
+    id: 0,
+    username: '',
+    friends: []
   }
 
   authuser: string | undefined = '';
->>>>>>> d7f8892fedd7123f0a48cc29125a6ab61d6b9e21
   
   ngOnInit(): void {
     

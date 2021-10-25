@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { RouteDisplayComponent } from './route-display/route-display.component';
 import { FriendsComponent } from './friends/friends.component';
+import { FriendprofileComponent } from './friendprofile/friendprofile.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'friend/:name',
+    component: FriendprofileComponent
   },
   {
     path: '',
