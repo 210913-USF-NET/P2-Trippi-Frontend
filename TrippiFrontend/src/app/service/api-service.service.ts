@@ -24,7 +24,7 @@ export class ApiServiceService {
     hours: 0,
     days: 0,
 }
-  private route: tripPost = {
+  private myroute: tripPost = {
     userId: 0,
     startLat: 0,
     startLong: 0,
@@ -89,12 +89,12 @@ export class ApiServiceService {
   }  
   addTrip(postTrip: tripPost): Promise<tripPost>
   {
-    this.route = postTrip;
+    this.myroute = postTrip;
     console.log(postTrip)
     // return this.http.post<tripPost>(this.root + `Trip/${postTrip}`).toPromise();
    return this.http.post<tripPost>(this.root + "Trip/",  postTrip).toPromise();
   }
   getRoute(){
-    return this.route;
+    return this.myroute;
   }
 }

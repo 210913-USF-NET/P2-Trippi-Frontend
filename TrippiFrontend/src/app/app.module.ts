@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from './friends/friends.component';
-import { RouteComponent } from './route/route.component';
+
 import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
 
 
@@ -29,7 +29,6 @@ import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
     RouteDisplayComponent,
     AuthComponent,
     FriendsComponent,
-    RouteComponent,
     ChosenTripComponent
   ],
   imports: [
