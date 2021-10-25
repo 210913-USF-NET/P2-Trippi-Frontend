@@ -24,13 +24,16 @@ export class ApiServiceService {
     hours: 0,
     days: 0,
 }
-  private myroute: tripPost = {
-    userId: 0,
-    startLat: 0,
-    startLong: 0,
-    endLat: 0,
-    endLong: 0
-  };
+public myroute: tripPost = {
+  username: "",
+  startLat: 0,
+  startLong: 0,
+  endLat: 0,
+  endLong: 0,
+  startAddress: "",
+  endAddress: ""
+  // rating: number;
+}
   constructor(private http: HttpClient) { }
 
   getRouteOptions(tripStart: tripStart) : Promise<[]>

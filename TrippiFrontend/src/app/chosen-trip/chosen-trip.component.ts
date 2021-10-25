@@ -11,13 +11,16 @@ import { ApiServiceService } from '../service/api-service.service';
 export class ChosenTripComponent implements OnInit {
 
   constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute, private route: Router) { }
-  private myroute: tripPost = {
-    userId: 0,
+  public myroute: tripPost = {
+    username: "",
     startLat: 0,
     startLong: 0,
     endLat: 0,
-    endLong: 0
-  };
+    endLong: 0,
+    startAddress: "",
+    endAddress: ""
+    // rating: number;
+}
 
   ngOnInit(): void {
     this.myroute = this.ApiService.getRoute();

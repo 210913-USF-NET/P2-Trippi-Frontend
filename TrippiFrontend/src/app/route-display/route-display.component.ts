@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { tripPost } from '../model/tripPost';
 import { tripStart } from '../model/tripStart';
 import { ApiServiceService } from '../service/api-service.service';
+import { AuthService } from '@auth0/auth0-angular';
 declare const google: any;
 
 @Component({
@@ -13,7 +14,7 @@ declare const google: any;
 
 export class RouteDisplayComponent implements OnInit, AfterViewInit{
 
-  constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute, private route: Router) { 
+  constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute, private route: Router, public auth: AuthService) { 
   }
   
   
@@ -32,11 +33,13 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
   days: 0
   }
   public postTrip: tripPost = {
-    userId: 18,
+    username: "",
     startLat: 0,
     startLong: 0,
     endLat: 0,
-    endLong: 0
+    endLong: 0,
+    startAddress: "",
+    endAddress: ""
     // rating: number;
 }
   Addresses: string[] = [];
@@ -89,12 +92,20 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
     });
   }
   selectRoute(address: string, index: number): void{
-    this.postTrip.startLat = this.LatLong[4][0];
-    this.postTrip.startLong = this.LatLong[4][1];
-    this.postTrip.endLat = this.LatLong[index][0];
-    this.postTrip.endLong= this.LatLong[index][1];
-    console.log(this.postTrip)
-    this.ApiService.addTrip(this.postTrip)
-    this.route.navigate(['mytrip'])
+    this.auth.user$.subscribe((user) =>{
+      console.log("This is ", user);
+      if(user?.nickname !== undefined){
+        this.postTrip.username = user.nickname;
+      }
+      this.postTrip.startLat = this.LatLong[4][0];
+      this.postTrip.startLong = this.LatLong[4][1];
+      this.postTrip.endLat = this.LatLong[index][0];
+      this.postTrip.endLong= this.LatLong[index][1];
+      this.postTrip.startAddress = this.newtrip.address;
+      this.postTrip.endAddress = address;
+      console.log(this.postTrip);
+      this.ApiService.addTrip(this.postTrip)
+      this.route.navigate(['mytrip'])
+    });
   }
 }
