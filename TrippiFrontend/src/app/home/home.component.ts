@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   
   onSubmit(): void{
     this.router.navigate(['form'])
-    console.log(this.router);
+  
   }
 
 }

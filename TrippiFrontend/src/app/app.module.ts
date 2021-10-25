@@ -14,6 +14,8 @@ import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from './friends/friends.component';
 
+import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
+
 
 
 
@@ -26,7 +28,8 @@ import { FriendsComponent } from './friends/friends.component';
     HomeComponent,
     RouteDisplayComponent,
     AuthComponent,
-    FriendsComponent
+    FriendsComponent,
+    ChosenTripComponent
   ],
   imports: [
     BrowserModule,

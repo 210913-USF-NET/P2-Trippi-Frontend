@@ -24,7 +24,13 @@ export class ApiServiceService {
     hours: 0,
     days: 0,
 }
-  posttrip: tripPost[] = [];
+  private myroute: tripPost = {
+    userId: 0,
+    startLat: 0,
+    startLong: 0,
+    endLat: 0,
+    endLong: 0
+  };
   constructor(private http: HttpClient) { }
 
   getRouteOptions(tripStart: tripStart) : Promise<[]>
@@ -43,7 +49,7 @@ export class ApiServiceService {
   {
 
     this.http.get<user[]>(this.rootUrl).toPromise().then(result => {
-      this.users = result;
+      this.users = result });
       for(let user2 of this.users){
         if (user2.username === user.username){
           break;
@@ -57,9 +63,7 @@ export class ApiServiceService {
       if(this.counter === this.users.length){
         console.log(this.users.length);
         this.http.post<user>(this.rootUrl, user).toPromise();
-      }
-      
-    });
+      };
   }
 
   getUsers(): Promise<user[]>
@@ -85,8 +89,12 @@ export class ApiServiceService {
   }  
   addTrip(postTrip: tripPost): Promise<tripPost>
   {
+    this.myroute = postTrip;
     console.log(postTrip)
     // return this.http.post<tripPost>(this.root + `Trip/${postTrip}`).toPromise();
    return this.http.post<tripPost>(this.root + "Trip/",  postTrip).toPromise();
+  }
+  getRoute(){
+    return this.myroute;
   }
 }

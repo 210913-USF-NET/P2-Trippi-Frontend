@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { RouteDisplayComponent } from './route-display/route-display.component';
 import { FriendsComponent } from './friends/friends.component';
+import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
     path: 'route',
     component: RouteDisplayComponent,
     canActivate: [AuthGuard]
+  },
+  {
+  path: 'mytrip',
+  component: ChosenTripComponent,
+  canActivate: [AuthGuard]
   },
   {
     path: 'friends',

@@ -13,7 +13,7 @@ declare const google: any;
 
 export class RouteDisplayComponent implements OnInit, AfterViewInit{
 
-  constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute) { 
+  constructor(private ApiService: ApiServiceService, private currentRoute: ActivatedRoute, private route: Router) { 
   }
   
   
@@ -32,7 +32,7 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
   days: 0
   }
   public postTrip: tripPost = {
-    userId: 16,
+    userId: 18,
     startLat: 0,
     startLong: 0,
     endLat: 0,
@@ -95,5 +95,6 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
     this.postTrip.endLong= this.LatLong[index][1];
     console.log(this.postTrip)
     this.ApiService.addTrip(this.postTrip)
+    this.route.navigate(['mytrip'])
   }
 }
