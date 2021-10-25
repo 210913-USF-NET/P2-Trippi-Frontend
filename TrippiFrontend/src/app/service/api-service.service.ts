@@ -5,6 +5,7 @@ import { user } from '../model/user';
 import { friend } from '../model/friend';
 
 import { tripOptions } from '../model/tripOptions';
+import { tripPost } from '../model/tripPost';
 
 @Injectable({
   providedIn: 'root'
@@ -12,27 +13,35 @@ import { tripOptions } from '../model/tripOptions';
 export class ApiServiceService {
 
   //Please declare routes like below depending on what you need to pull from the api
+  root: string = 'https://p2trippiapi.azurewebsites.net/api/';
   rootUrl: string =  'https://p2trippiapi.azurewebsites.net/api/User';
   rootUrl1: string =  'https://p2trippiapi.azurewebsites.net/api/Friend';
 
   users : user[] = [];
   counter: number = 0;
   private tripStart: tripStart ={
-    formattedaddress: '',
+    address: '',
     hours: 0,
     days: 0,
 }
+  private myroute: tripPost = {
+    userId: 0,
+    startLat: 0,
+    startLong: 0,
+    endLat: 0,
+    endLong: 0
+  };
   constructor(private http: HttpClient) { }
 
   getRouteOptions(tripStart: tripStart) : Promise<[]>
   {
-    return this.http.get<[]>(this.rootUrl + `route/${tripStart.formattedaddress} ${tripStart.hours} ${tripStart.days}`).toPromise();
+    return this.http.get<[]>(this.root + `route/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
   }
 
 
   getPOIs(tripStart: tripStart) : Promise<[]>
   {
-    return this.http.get<[]>(this.rootUrl + `POI/${tripStart.formattedaddress} ${tripStart.hours} ${tripStart.days}`).toPromise();
+    return this.http.get<[]>(this.root + `POI/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
   }
 
 
@@ -61,9 +70,9 @@ export class ApiServiceService {
       else{
         this.http.post<user>(this.rootUrl, user).toPromise();
       }
-      
-    });
-  }
+      })
+}
+
 
   getUsers(): Promise<user[]>
   {
@@ -86,4 +95,14 @@ export class ApiServiceService {
   getTrip() {  
     return this.tripStart ;  
   }  
+  addTrip(postTrip: tripPost): Promise<tripPost>
+  {
+    this.myroute = postTrip;
+    console.log(postTrip)
+    // return this.http.post<tripPost>(this.root + `Trip/${postTrip}`).toPromise();
+    return this.http.post<tripPost>(this.root + "Trip/",  postTrip).toPromise();
+  }
+  getRoute(){
+    return this.myroute;
+  }
 }

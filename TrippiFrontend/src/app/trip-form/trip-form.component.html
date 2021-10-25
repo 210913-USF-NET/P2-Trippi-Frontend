@@ -1,11 +1,10 @@
 <!-- <div class="container">
     <form (ngSubmit)="onSubmit(tripForm)" #tripForm="ngForm">
         <div class="form-group">
-            <label for="formattedaddress">Start Address</label>
-            <input ngx-google-places-autocomplete [options]='options'  (onAddressChange)="AddressChange($event)" class="form-control"
-            {{ formattedaddress }} type="text" name="formattedaddress" id="trip-formattedaddress" [(ngModel)]="trip.formattedaddress" #formattedaddress="ngModel" placeholder="1234 Main St." required>
-            <div *ngIf="tripForm.controls['addrformattedaddressess']?.invalid && tripForm.controls['formattedaddress'].touched">
-                <span *ngIf="tripForm.controls['formattedaddress'].errors?.required" class="help-inline">Address is required</span>  
+            <label for="address">Start Address</label>
+            <input class="form-control" type="text" name="address" id="trip-address" [(ngModel)]="trip.address" #address="ngModel" placeholder="1234 Main St." required>
+            <div *ngIf="tripForm.controls['address']?.invalid && tripForm.controls['address'].touched">
+                <span *ngIf="tripForm.controls['address'].errors?.required" class="help-inline">Address is required</span>  
             </div>
         </div>
         <div class="form-group">
@@ -17,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="days">Length of trip in days</label>
-            <input class="form-control" type="text" name="days" id="trip-days" [(ngModel)]="trip.days" #days="ngModel" placeholder="2 - 7" required>
+            <input class="form-control" type="text" name="days" id="trip-address" [(ngModel)]="trip.days" #days="ngModel" placeholder="2 - 7" required>
             <div *ngIf="tripForm.controls['days']?.invalid && tripForm.controls['days'].touched">
                 <span *ngIf="tripForm.controls['days'].errors?.required" class="help-inline">number of days is required</span>  
             </div>

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,8 +13,16 @@ import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from './friends/friends.component';
+<<<<<<< HEAD
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { FriendprofileComponent } from './friendprofile/friendprofile.component';
+=======
+
+import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
+
+
+
+>>>>>>> 5ee6ed0d8b9d81df9c27deafc8ccef9ae59b0dae
 
 
 @NgModule({
@@ -27,9 +34,13 @@ import { FriendprofileComponent } from './friendprofile/friendprofile.component'
     RouteDisplayComponent,
     AuthComponent,
     FriendsComponent,
+<<<<<<< HEAD
     FriendprofileComponent,
     //GooglePlaceModule
   
+=======
+    ChosenTripComponent
+>>>>>>> 5ee6ed0d8b9d81df9c27deafc8ccef9ae59b0dae
   ],
   imports: [
     BrowserModule,
@@ -40,8 +51,8 @@ import { FriendprofileComponent } from './friendprofile/friendprofile.component'
       domain: environment.authDomain,
       clientId: environment.authClientId
     }),
-    RouterModule
-   
+    RouterModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

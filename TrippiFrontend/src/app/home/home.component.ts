@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { user } from '../model/user';
 import { Router } from '@angular/router';
+import { ApiServiceService } from '../service/api-service.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private auth: AuthService, private router: Router) { }
+  constructor(private trippiService: ApiServiceService, private auth: AuthService, private router: Router) { }
+
 
   isLoggedIn: boolean = false;
 
@@ -29,7 +31,7 @@ export class HomeComponent implements OnInit {
   
   onSubmit(): void{
     this.router.navigate(['form'])
-    console.log(this.router);
+  
   }
 
 }
