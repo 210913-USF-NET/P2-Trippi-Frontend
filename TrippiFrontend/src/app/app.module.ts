@@ -13,6 +13,8 @@ import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from './friends/friends.component';
+import { RouteComponent } from './route/route.component';
+import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
 
 
 
@@ -26,7 +28,9 @@ import { FriendsComponent } from './friends/friends.component';
     HomeComponent,
     RouteDisplayComponent,
     AuthComponent,
-    FriendsComponent
+    FriendsComponent,
+    RouteComponent,
+    ChosenTripComponent
   ],
   imports: [
     BrowserModule,

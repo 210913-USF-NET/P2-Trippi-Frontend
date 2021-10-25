@@ -30,7 +30,7 @@ export class AuthComponent implements OnInit {
     this.auth.isAuthenticated$.subscribe((isAuthenticated) =>{
         this.isLoggedIn = isAuthenticated;
         console.log("This is ", this.isLoggedIn);
-
+        console.log(this.user)
         this.auth.user$.subscribe((user) =>{
             this.authuser = user?.nickname;
 

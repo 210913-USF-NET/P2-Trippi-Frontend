@@ -32,7 +32,7 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
   days: 0
   }
   public postTrip: tripPost = {
-    userId: 16,
+    userId: 18,
     startLat: 0,
     startLong: 0,
     endLat: 0,
