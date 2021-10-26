@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tripPost } from '../model/tripPost';
 import { ApiServiceService } from '../service/api-service.service';
+import { FriendsComponent } from '../friends/friends.component';
 declare const google: any;
 
 @Component({
