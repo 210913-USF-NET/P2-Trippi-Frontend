@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  WORKING_DIRECTORY: ../P2-Trippi-FrontEnd/TrippiFrontend
+  WORKING_DIRECTORY: ./TrippiFrontend
   
 jobs:
   build:
@@ -28,13 +28,14 @@ jobs:
           
       - name: Install dependencies
         run: npm ci
+        working-directory: ${{env.WORKING_DIRECTORY}}
       
       - name: Build
         run: npm run build:ci
-        
+        working-directory: ${{env.WORKING_DIRECTORY}}
       - name: Test
         run: npm run test:ci
-
+        working-directory: ${{env.WORKING_DIRECTORY}}
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
