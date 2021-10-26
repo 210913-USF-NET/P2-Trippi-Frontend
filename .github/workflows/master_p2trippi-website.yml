@@ -17,16 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: pwd
-        run: pwd
+      - uses: actions/checkout@v2
       - name: ls
         run: ls
-      - name: cd
-        run: cd ..
-      - name: pwd
-        run: pwd
-        
-      - uses: actions/checkout@v2
 
       - name: Set up Node.js version
         uses: actions/setup-node@v1
