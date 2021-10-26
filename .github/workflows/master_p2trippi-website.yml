@@ -23,7 +23,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-
+      
+      - name: clear cache
+        run: npm cache clean
+        
       - name: npm install, build, and test
         run: npm install ${{env.WORKING_DIRECTORY}}
           
