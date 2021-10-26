@@ -28,10 +28,10 @@ jobs:
         run: npm install --cache /tmp/empty-cache
         
       - name: npm install, build, and test
-        run: npm install ${{env.WORKING_DIRECTORY}}
+        run: npm install ./
           
       - name: build, and test
-        run: npm run build ${{env.WORKING_DIRECTORY}} --if-present
+        run: npm run build ./ --if-present
         
       - name: npm install, build, and test
         run: npm run test ${{env.WORKING_DIRECTORY}} --if-present
