@@ -84,8 +84,8 @@ export class ApiServiceService {
     return this.http.get<user>(this.rootUrl + "/" + id).toPromise();
   }
 
-  addFriend(friend: friend){
-    this.http.post<friend>(this.rootUrl1, friend).toPromise();
+  addFriend(friend: friend): Promise<friend>{
+    return this.http.post<friend>(this.rootUrl1, friend).toPromise();
   }
 
   setTrip( tripForm: tripStart) {      

@@ -14,8 +14,8 @@ import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from './friends/friends.component';
-import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { FriendprofileComponent } from './friendprofile/friendprofile.component';
+import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { FriendprofileComponent } from './friendprofile/friendprofile.component'
     AuthComponent,
     FriendsComponent,
     FriendprofileComponent,
-    //GooglePlaceModule
+    ChosenTripComponent
   
   ],
   imports: [
@@ -45,5 +45,6 @@ import { FriendprofileComponent } from './friendprofile/friendprofile.component'
   ],
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
