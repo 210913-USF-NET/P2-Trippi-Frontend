@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { tripPost } from '../model/tripPost';
 import { ApiServiceService } from '../service/api-service.service';
 import { Router } from '@angular/router';
+import { trip } from '../model/trip';
 
 @Component({
   selector: 'app-trip-history',
@@ -13,7 +14,7 @@ export class TripHistoryComponent implements OnInit {
   constructor(public TService: ApiServiceService, public troute: Router) { }
 
   //public Trips: tripPost[] = this.TService.getTrips()
-    Trips: tripPost[] = [];
+    Trips: trip[] = [];
   ngOnInit(): void {
     this.TService.getTrips().then(result => {
       console.log(result);
