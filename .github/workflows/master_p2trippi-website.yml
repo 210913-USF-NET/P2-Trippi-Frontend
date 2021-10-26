@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  WORKING_DIRECTORY: ./TrippiFrontend
+  WORKING_DIRECTORY: ../P2-Trippi-FrontEnd/TrippiFrontend
   
 jobs:
   build:
@@ -21,6 +21,11 @@ jobs:
         run: pwd
       - name: ls
         run: ls
+      - name: cd
+        run: cd ..
+      - name: pwd
+        run: pwd
+        
       - uses: actions/checkout@v2
 
       - name: Set up Node.js version
