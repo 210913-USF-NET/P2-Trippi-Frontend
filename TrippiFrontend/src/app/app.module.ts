@@ -15,7 +15,12 @@ import { AuthComponent } from './auth/auth.component';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from './friends/friends.component';
 import { FriendprofileComponent } from './friendprofile/friendprofile.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { TripHistoryComponent } from './trip-history/trip-history.component';
+import { TripdetailsComponent } from './tripdetails/tripdetails.component';
+
 import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
+
 
 
 @NgModule({
@@ -28,7 +33,14 @@ import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
     AuthComponent,
     FriendsComponent,
     FriendprofileComponent,
+
+    RatingsComponent,
+    TripHistoryComponent,
+    TripdetailsComponent,
+    //GooglePlaceModule
+
     ChosenTripComponent
+
   
   ],
   imports: [
