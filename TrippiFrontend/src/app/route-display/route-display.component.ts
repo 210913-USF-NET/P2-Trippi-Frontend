@@ -39,7 +39,9 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
     endLat: 0,
     endLong: 0,
     startAddress: "",
-    endAddress: ""
+    endAddress: "",
+    id: 0,
+    rating: null
     // rating: number;
 }
   Addresses: string[] = [];

@@ -16,6 +16,9 @@ import { RouterModule } from '@angular/router';
 import { FriendsComponent } from './friends/friends.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { FriendprofileComponent } from './friendprofile/friendprofile.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { TripHistoryComponent } from './trip-history/trip-history.component';
+import { TripdetailsComponent } from './tripdetails/tripdetails.component';
 
 
 @NgModule({
@@ -28,6 +31,9 @@ import { FriendprofileComponent } from './friendprofile/friendprofile.component'
     AuthComponent,
     FriendsComponent,
     FriendprofileComponent,
+    RatingsComponent,
+    TripHistoryComponent,
+    TripdetailsComponent,
     //GooglePlaceModule
   
   ],

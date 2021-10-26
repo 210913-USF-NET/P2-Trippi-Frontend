@@ -31,7 +31,9 @@ public myroute: tripPost = {
   endLat: 0,
   endLong: 0,
   startAddress: "",
-  endAddress: ""
+  endAddress: "",
+  id: 0,
+  rating: null
   // rating: number;
 }
   constructor(private http: HttpClient) { }
@@ -45,6 +47,11 @@ public myroute: tripPost = {
   getPOIs(tripStart: tripStart) : Promise<[]>
   {
     return this.http.get<[]>(this.root + `POI/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
+  }
+
+  getTrips(): Promise<tripPost[]>
+  {
+    return this.http.get<[]>(this.root + `Trip/`).toPromise();
   }
 
 

@@ -1,4 +1,8 @@
+import { ratings } from "./ratings";
+
+
 export interface tripPost{
+    id: number;
     username: string;
     startAddress: string;
     endAddress: string;
@@ -6,5 +10,5 @@ export interface tripPost{
     startLong: number;
     endLat: number;
     endLong: number;
-    // rating: number;
+    rating: ratings[] | null;
 }

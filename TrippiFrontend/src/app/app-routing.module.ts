@@ -8,6 +8,8 @@ import { RouteDisplayComponent } from './route-display/route-display.component';
 import { FriendsComponent } from './friends/friends.component';
 import { FriendprofileComponent } from './friendprofile/friendprofile.component';
 import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
+import { TripHistoryComponent } from './trip-history/trip-history.component';
+import { TripdetailsComponent } from './tripdetails/tripdetails.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'trip-history',
+    component: TripHistoryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
   path: 'mytrip',
   component: ChosenTripComponent,
   canActivate: [AuthGuard]
@@ -41,6 +48,11 @@ const routes: Routes = [
   {
     path: 'friend/:name',
     component: FriendprofileComponent
+  },
+  {
+    path: 'trip-history/:id',
+    component: TripdetailsComponent
+
   },
   {
     path: '',
