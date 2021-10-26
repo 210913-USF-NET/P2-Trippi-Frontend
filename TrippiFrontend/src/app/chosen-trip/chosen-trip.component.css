@@ -1,4 +1,11 @@
 .map {
+    float: left;
     height: 95vh;
     width: 50%;
+ }
+ .friends {
+  position: relative;
+    height: 20vh;
+    width: 50%;
+    float: right;
  }
