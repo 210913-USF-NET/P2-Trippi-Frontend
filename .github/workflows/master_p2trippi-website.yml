@@ -26,7 +26,7 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install 
+          npm install ${{env.WORKING_DIRECTORY}}
           npm run build ${{env.WORKING_DIRECTORY}} --if-present
           npm run test ${{env.WORKING_DIRECTORY}} --if-present
 
