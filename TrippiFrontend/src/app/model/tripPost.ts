@@ -1,5 +1,7 @@
 export interface tripPost{
-    userId: number;
+    username: string;
+    startAddress: string;
+    endAddress: string;
     startLat: number;
     startLong: number;
     endLat: number;
