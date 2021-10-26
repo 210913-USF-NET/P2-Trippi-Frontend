@@ -34,7 +34,7 @@ jobs:
         run: npm install --cache /tmp/empty-cache
       
       - name: run stuff
-        run: pwd
+        run: cd ./TrippiFrontend
         
       - name: npm install, build, and test
         run: npm install ${{env.WORKING_DIRECTORY}}
