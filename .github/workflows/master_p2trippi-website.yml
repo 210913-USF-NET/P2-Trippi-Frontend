@@ -26,6 +26,9 @@ jobs:
       
       - name: clear cache
         run: npm install --cache /tmp/empty-cache
+      
+      - name: run stuff
+        run: pwd
         
       - name: npm install, build, and test
         run: npm install ./
