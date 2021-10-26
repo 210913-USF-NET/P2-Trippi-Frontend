@@ -5,12 +5,21 @@
             <div class="col-md-14">
                 <h4>Trips</h4>
                 <table class="table">
-                    <tbody >
+                    <tbody *ngFor="let trip of trips">
                         <tr>
                             <td>
-                                <p>Trip Route: </p>
-                                <p>Rating: </p>
+                                <p><b>Start Address:</b> {{trip.startAddress}}</p>
+                                <p><b>Address:</b> {{trip.endAddress}}</p>
+                                <p><b>Rating:</b>{{trip.rating}}</p>
                             </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Friends</h4>
+                <table class="table">
+                    <tbody>
+                        <tr *ngFor="let name of userNames">
+                            <td>{{name}}</td>
                         </tr>
                     </tbody>
                 </table>
