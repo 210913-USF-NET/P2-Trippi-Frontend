@@ -31,10 +31,10 @@ jobs:
         working-directory: ${{env.WORKING_DIRECTORY}}
       
       - name: Build
-        run: npm run build:ci
+        run: npm run build
         working-directory: ${{env.WORKING_DIRECTORY}}
       - name: Test
-        run: npm run test:ci
+        run: npm run test
         working-directory: ${{env.WORKING_DIRECTORY}}
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
