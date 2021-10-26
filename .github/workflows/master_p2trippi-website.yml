@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  WORKING_DIRECTORY: /TrippiFrontend
+  WORKING_DIRECTORY: TrippiFrontend
   
 jobs:
   build:
