@@ -6,6 +6,7 @@ import { friend } from '../model/friend';
 
 import { tripOptions } from '../model/tripOptions';
 import { tripPost } from '../model/tripPost';
+import { trip } from '../model/trip';
 
 @Injectable({
   providedIn: 'root'
@@ -94,8 +95,8 @@ public myroute: tripPost = {
     return this.http.get<user>(this.rootUrl + "/" + id).toPromise();
   }
 
-  addFriend(friend: friend){
-    this.http.post<friend>(this.rootUrl1, friend).toPromise();
+  addFriend(friend: friend): Promise<friend>{
+    return this.http.post<friend>(this.rootUrl1, friend).toPromise();
   }
 
   setTrip( tripForm: tripStart) {      
@@ -114,5 +115,9 @@ public myroute: tripPost = {
   }
   getRoute(){
     return this.myroute;
+  }
+
+  getTrips(): Promise<trip[]>{
+    return this.http.get<trip[]>(this.root + "/Trip").toPromise();
   }
 }

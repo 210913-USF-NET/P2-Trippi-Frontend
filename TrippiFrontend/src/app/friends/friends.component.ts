@@ -49,6 +49,7 @@ ngOnInit(): void {
         }
 
         console.log(this.user1);
+        console.log(this.users);
 
         for(let friend of this.user1.friends){
           this.fService.getOneUser(friend.friendId).then(result => {
@@ -58,6 +59,10 @@ ngOnInit(): void {
         }
 
         for(let notFriend of this.users){
+          console.log(notFriend)
+          console.log(this.counter)
+          console.log(this.counter1)
+          
           if(this.user1.friends.length !==0){
             if(notFriend.username !== this.user1.username){
               for(let userFriend of notFriend.friends){
@@ -77,6 +82,7 @@ ngOnInit(): void {
                   continue;
                 }
                 else{
+                  this.counter = 0;
                   break;
                 }
               }
@@ -120,9 +126,71 @@ ngOnInit(): void {
   
           this.friend.userId = userFriend.id
           this.friend.friendId = this.user1.id
-          this.fService.addFriend(this.friend)
+          this.fService.addFriend(this.friend).then((res) =>{
+            alert(`${userFriend.username} is now your friend.`);
+            this.fService.getUsers().then((allUsers) => {
+              this.users = allUsers;
+              for (let user2 of this.users){
+                if(user2.username === user?.nickname){
+                  this.user1 = user2 
+                }
+              }
+              
+              this.notFriends = [];
+              this.usernames = [];
+
+              console.log(this.user1);
+      
+              for(let friend of this.user1.friends){
+                this.fService.getOneUser(friend.friendId).then(result => {
+                  this.name = result.username;
+                  this.usernames.push(this.name);
+                })
+              }
+      
+              for(let notFriend of this.users){
+                if(this.user1.friends.length !==0){
+                  if(notFriend.username !== this.user1.username){
+                    for(let userFriend of notFriend.friends){
+                      for(let fr of this.user1.friends){
+                        if(userFriend.userId !== fr.friendId && userFriend.friendId !== fr.userId){
+                          this.counter++;
+                          continue;
+                        }
+                        else{
+                          break;
+                        }
+                      }
+                      if(this.counter === this.user1.friends.length)
+                      {
+                        this.counter = 0;
+                        this.counter1++;
+                        continue;
+                      }
+                      else{
+                        this.counter = 0;
+                        break;
+                      }
+                    }
           
-          alert(`${userFriend.username} is now your friend.`)
+                    if(this.counter1 === notFriend.friends.length){
+                      this.notFriends.push(notFriend);
+                      this.counter1 = 0;
+                    }
+                  }
+                }
+                else{
+                  if(notFriend.username !== this.user1.username){
+                    this.notFriends.push(notFriend);
+                  }
+                }
+                
+              }
+      
+              console.log(this.notFriends)
+            })
+          })
+          
         })
   
       })

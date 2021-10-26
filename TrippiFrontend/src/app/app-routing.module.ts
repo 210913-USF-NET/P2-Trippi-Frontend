@@ -46,7 +46,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'friend/:name',
+    path: 'friendprofile/:name',
     component: FriendprofileComponent
   },
   {
