@@ -21,6 +21,9 @@ jobs:
         run: pwd
         
       - uses: actions/checkout@v1
+      
+      - name: run stuff
+        run: ls
 
       - name: Set up Node.js version
         uses: actions/setup-node@v1
