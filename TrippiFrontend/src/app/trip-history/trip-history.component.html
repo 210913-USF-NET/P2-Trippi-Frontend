@@ -1,8 +1,8 @@
 <p>trip-history works!</p>
 <div class="container">
-<h2>list of trips</h2>
+<h2>list of trips for {{UserName}}</h2>
 
-<table class="table">
+<table class="table bg-light">
     <thead>
         <th>Trip Creator</th>
         <th>Start</th>
@@ -10,9 +10,16 @@
     </thead>
     <tbody>
         <tr *ngFor="let t of Trips" (click)="goToTrip(t.id)">
-            <td>{{t.username}}</td>
-            <td>{{t.startAddress}}</td>
-            <td>{{t.endAddress}}</td>
+               
+            
+                <td *ngIf="t.username == UserName">{{t.username}}</td>
+           
+            
+                <td *ngIf="t.username == UserName">{{t.startAddress}}</td>
+            
+           
+                <td *ngIf="t.username == UserName">{{t.endAddress}}</td>
+            
         </tr>
     </tbody>
 </table>
