@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: run stuff
+        run: pwd
+        
       - uses: actions/checkout@v1
 
       - name: Set up Node.js version
