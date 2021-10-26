@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { trip } from '../model/trip';
 import { user } from '../model/user';
 import { ApiServiceService } from '../service/api-service.service';
 
@@ -19,6 +20,10 @@ export class FriendprofileComponent implements OnInit {
     username: '',
     friends: []
   }
+  trips: trip[] = []
+
+userName: string = '';
+userNames: string[] = [];
 
   ngOnInit(): void {
     this.currnetRoute.params.subscribe(params => {
@@ -29,7 +34,27 @@ export class FriendprofileComponent implements OnInit {
             this.user1 = user;
           }
         }
+
+        for(let friend of this.user1.friends){
+          this.fService.getOneUser(friend.friendId).then(result => {
+            this.userName = result.username;
+            this.userNames.push(this.userName);
+          })
+        }
       })
+
+      this.fService.getTrips().then(trips =>{
+        if(trips){
+          for(let trip of trips){
+            if(trip.username == this.name){
+              this.trips.push(trip);
+            }
+          }
+        }
+      })
+
+      console.log(this.user1);
+      
     })
   }
 
