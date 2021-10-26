@@ -25,7 +25,7 @@ jobs:
           node-version: '14.x'
       
       - name: clear cache
-        run: npm cache clean
+        run: npm install --cache /tmp/empty-cache
         
       - name: npm install, build, and test
         run: npm install ${{env.WORKING_DIRECTORY}}
