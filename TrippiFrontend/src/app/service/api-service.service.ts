@@ -57,7 +57,7 @@ public myroute: tripPost = {
   // }
 
 
-  addUser(user:user)
+  addUser(user:user) 
   {
 
     this.http.get<user[]>(this.rootUrl).toPromise().then(result => {
