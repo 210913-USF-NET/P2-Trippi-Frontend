@@ -1,5 +1,5 @@
 <div class="container">
-    <form (ngSubmit)="onSubmit(tripForm)" #tripForm="ngForm">
+    <form (ngSubmit)="onSubmit(tripForm)" #tripForm="ngForm" class="text-center">
         <div class="form-group">
             <label for="address">Start Address</label>
             <input class="form-control" type="text" name="address" id="trip-address" [(ngModel)]="trip.address" #address="ngModel" placeholder="1234 Main St." required>
@@ -8,21 +8,21 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="hours">Hour of driving per day</label>
-            <input class="form-control" type="text" name="hours" id="trip-hours" [(ngModel)]="trip.hours" #hours="ngModel" placeholder="2" required>
-            <div *ngIf="tripForm.controls['hours']?.invalid && tripForm.controls['hours'].touched">
-                <span *ngIf="tripForm.controls['hours'].errors?.required" class="help-inline">Hours Driving is required</span>  
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="days">Length of trip in days</label>
+            <label for="days">Length of Trip (days)</label>
             <input class="form-control" type="text" name="days" id="trip-address" [(ngModel)]="trip.days" #days="ngModel" placeholder="2 - 7" required>
             <div *ngIf="tripForm.controls['days']?.invalid && tripForm.controls['days'].touched">
                 <span *ngIf="tripForm.controls['days'].errors?.required" class="help-inline">number of days is required</span>  
             </div>
         </div>
+        <div class="form-group">
+            <label for="hours">Hours of driving per day</label>
+            <input class="form-control" type="text" name="hours" id="trip-hours" [(ngModel)]="trip.hours" #hours="ngModel" placeholder="2" required>
+            <div *ngIf="tripForm.controls['hours']?.invalid && tripForm.controls['hours'].touched">
+                <span *ngIf="tripForm.controls['hours'].errors?.required" class="help-inline">Hours Driving is required</span>  
+            </div>
+        </div>
         <p></p>
-        <input class="btn btn-success" type="submit" value="Start Tripping" >
+        <input class="btn-lg btn-success" type="submit" value="Start Tripping" >
     </form>
     <p></p>
 </div>
