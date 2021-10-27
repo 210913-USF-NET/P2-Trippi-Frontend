@@ -126,4 +126,9 @@ public myroute: tripPost = {
   {
     return this.http.post<ratings>(this.root + "/Rating", reviewToAdd).toPromise();
   }
+
+  getReview(): Promise<ratings[]>
+  {
+    return this.http.get<ratings[]>(this.root + "/Rating").toPromise();
+  }
 }
