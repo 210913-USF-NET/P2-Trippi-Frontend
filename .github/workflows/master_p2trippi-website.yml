@@ -8,6 +8,10 @@ on:
     branches:
       - master
   workflow_dispatch:
+  
+env:
+  WORKING_DIRECTORY: ./TrippiFrontend
+
 
 jobs:
   build:
@@ -20,12 +24,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-
+      
       - name: npm install, build, and test
         run: |
           npm install
           npm run build --if-present
           npm run test --if-present
+        working-directory: ${{env.WORKING_DIRECTORY}}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
