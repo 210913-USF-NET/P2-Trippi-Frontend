@@ -7,6 +7,7 @@ import { friend } from '../model/friend';
 import { tripOptions } from '../model/tripOptions';
 import { tripPost } from '../model/tripPost';
 import { trip } from '../model/trip';
+import { ratings } from '../model/ratings';
 
 @Injectable({
   providedIn: 'root'
@@ -119,5 +120,10 @@ public myroute: tripPost = {
 
   getTrips(): Promise<trip[]>{
     return this.http.get<trip[]>(this.root + "/Trip").toPromise();
+  }
+
+  addReview(reviewToAdd: ratings): Promise<ratings>
+  {
+    return this.http.post<ratings>(this.root + "/Rating", reviewToAdd).toPromise();
   }
 }
