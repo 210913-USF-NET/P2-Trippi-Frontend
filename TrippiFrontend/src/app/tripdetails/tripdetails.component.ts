@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from '../service/api-service.service';
@@ -13,7 +13,12 @@ import { ratings } from '../model/ratings';
 })
 export class TripdetailsComponent implements OnInit {
 
-  constructor(private currentroute: ActivatedRoute, private TAPI: ApiServiceService, public tauth: AuthService, private rrouter: Router) { }
+ 
+  constructor( private currentroute: ActivatedRoute, private TAPI: ApiServiceService, public tauth: AuthService, private rrouter: Router) { 
+    // this.tripid = tabletripid;
+  }
+  
+  @Input() tabletripid?: number;
   tripid: number = 0;
   userid: number = 0;
   UserName: string = "";
@@ -31,11 +36,14 @@ export class TripdetailsComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.currentroute.params);
 
-    this.currentroute.params.subscribe((para) => {
-      console.log(para.id);
-      this.tripid = para.id;
-    })
-
+    // this.currentroute.params.subscribe((para) => {
+    //   console.log(para.id);
+    //   // this.tripid = para.id;
+    // })
+    if(this.tabletripid)
+    {
+      this.tripid = this.tabletripid;
+    }
     this.tauth.user$.subscribe((user) => {
       if(user?.nickname !== null && user?.nickname !== undefined)
       {
