@@ -29,7 +29,6 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          npm run test --if-present
         working-directory: ${{env.WORKING_DIRECTORY}}
 
       - name: Upload artifact for deployment job
@@ -37,6 +36,7 @@ jobs:
         with:
           name: node-app
           path: .
+
 
   deploy:
     runs-on: ubuntu-latest
