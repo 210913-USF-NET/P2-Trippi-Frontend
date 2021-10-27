@@ -25,17 +25,20 @@ jobs:
         with:
           node-version: '14.x'
       
-      - name: npm install, build, and test
+      - name: npm install, build
         run: |
           npm install
           npm run build --if-present
         working-directory: ${{env.WORKING_DIRECTORY}}
+        
+      - name: Tar Files
+        run: tar -cvf my_files.tar ./TrippiFrontend
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: ./my_files.tar
 
 
   deploy:
