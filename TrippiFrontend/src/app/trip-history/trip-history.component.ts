@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { trip } from '../model/trip';
 import { AuthService } from '@auth0/auth0-angular';
 import { user } from '../model/user';
+import { TripdetailsComponent } from '../tripdetails/tripdetails.component';
 
 @Component({
   selector: 'app-trip-history',
