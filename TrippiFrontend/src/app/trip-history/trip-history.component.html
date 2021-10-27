@@ -6,6 +6,7 @@
         <th>Username</th>
         <th>Start</th>
         <th>End</th>
+        <th>Rating</th>
     </thead>
     <tbody>
         <tr *ngFor="let t of Trips" (click)="goToTrip(t.id)">
@@ -18,6 +19,8 @@
             
            
                 <td *ngIf="t.username == UserName">{{t.endAddress}}</td>
+
+                <td *ngIf="t.username == UserName">{{t.rating}}</td>
             
         </tr>
     </tbody>
