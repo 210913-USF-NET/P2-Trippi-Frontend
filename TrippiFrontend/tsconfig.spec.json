@@ -4,7 +4,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "Jasmine", "googlemaps"
+      "jasmine"
     ]
   },
   "files": [

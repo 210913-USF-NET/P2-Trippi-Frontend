@@ -6,12 +6,17 @@
     transform: translate(-50%, -50%);
     background-color: rgba(255, 250, 244, 0.842);
     position: fixed;
+    width: 50%;
+    border-radius: 50pt;
 } 
 p {
 font-family: "Permanent Marker", sans-serif; 
+font-size: 20pt;
 }
 .form-group {
     font-family: "Permanent Marker", sans-serif; 
+    font-size: 20pt;
+    padding: 10px;
 }
 .help-inline {
     color: #ee0000;
