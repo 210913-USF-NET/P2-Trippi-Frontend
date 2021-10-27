@@ -33,7 +33,7 @@ jobs:
         working-directory: ${{env.WORKING_DIRECTORY}}
         
       - name: publish
-        run: ng publish ${{ env.WORKING_DIRECTORY }} -c Release -o ${{env.WORKING_DIRECTORY}}/myapp
+        run: npm publish ${{ env.WORKING_DIRECTORY }} -c Release -o ${{env.WORKING_DIRECTORY}}/myapp
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
