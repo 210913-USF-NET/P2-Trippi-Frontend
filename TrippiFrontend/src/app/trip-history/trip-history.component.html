@@ -6,9 +6,11 @@
         <th>Username</th>
         <th>Start</th>
         <th>End</th>
+        <th>Rate Trip</th>
     </thead>
     <tbody>
-        <tr *ngFor="let t of Trips" (click)="goToTrip(t.id)">
+        <!-- <tr *ngFor="let t of Trips" (click)="goToTrip(t.id)"> -->
+        <tr *ngFor="let t of Trips">
                
             
                 <td *ngIf="t.username == UserName">{{t.username}}</td>
@@ -19,6 +21,7 @@
            
                 <td *ngIf="t.username == UserName">{{t.endAddress}}</td>
             
+                <td *ngIf="t.username == UserName"><app-tripdetails [tabletripid]="t.id" class="tripdetails"></app-tripdetails></td>
         </tr>
     </tbody>
 </table>
