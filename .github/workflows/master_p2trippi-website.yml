@@ -24,6 +24,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+          
+      - name: Angular Install
+        run: npm install -g @angular/cli
       
       - name: npm install, build
         run: |
