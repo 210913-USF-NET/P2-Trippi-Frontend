@@ -51,10 +51,7 @@ public myroute: tripPost = {
     return this.http.get<[]>(this.root + `POI/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
   }
 
-  // getTrips(): Promise<tripPost[]>
-  // {
-  //   return this.http.get<[]>(this.root + `Trip/`).toPromise();
-  // }
+
 
 
   addUser(user:user) 
@@ -104,8 +101,9 @@ public myroute: tripPost = {
     this.tripStart = tripForm;  
   }  
   
-  getTrip() {  
-    return this.tripStart ;  
+  getTrip(): tripStart {  
+    return this.tripStart;
+    console.log(this.tripStart)  
   }  
   addTrip(postTrip: tripPost): Promise<tripPost>
   {

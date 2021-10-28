@@ -14,12 +14,6 @@ export class TripFormComponent implements OnInit {
 
   constructor(private currentRoute: ActivatedRoute, private router: Router, private apiSerive: ApiServiceService) { }
   title = 'rou';
-  //Local Variable defined
-  
-  // options={
-  //   componentRestrictions:{
-  //     country:["US"]
-  //   }}
   trip : tripStart = {
     address: '',
     hours: 0,
@@ -33,9 +27,5 @@ onSubmit(tripForm: NgForm){
     this.router.navigate(['route'])
     }
   }
-  // public AddressChange(address: any) {
-  //   //setting address from API to local variable
-  //    this.trip.formattedaddress=address.formatted_address
-  // }
 
 }

@@ -21,7 +21,7 @@
                     <tbody *ngFor="let notFriend of notFriends">
                         <tr>
                             <td>{{notFriend.username}}</td>
-                            <td><button (click)="onSubmit($event, notFriend)" class="btn btn-primary btn-sm">Add friend</button></td>
+                            <td><button class="button" (click)="onSubmit($event, notFriend)" class="btn btn-primary btn-sm">Add friend</button></td>
                         </tr>
                     </tbody>
                 </table>
