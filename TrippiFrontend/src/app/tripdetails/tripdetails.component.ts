@@ -24,10 +24,10 @@ export class TripdetailsComponent implements OnInit {
   UserName: string = "";
   AllUsers: user[] = [];
   newrating: ratings = {
-    Id: 0,
-    UserId: 0,
-    TripId: 0,
-    MyRating: 0
+    id: 0,
+    userId: 0,
+    tripId: 0,
+    myRating: 0
 
 
     
@@ -69,18 +69,19 @@ export class TripdetailsComponent implements OnInit {
     if(rateForm.valid){
       //console.log(rateForm);
       //console.log(rateForm.value.rating);
-      this.newrating.MyRating = rateForm.value.rating;
-      this.newrating.TripId = this.tripid;
-      this.newrating.UserId = this.userid;
+      this.newrating.myRating = rateForm.value.rating;
+      this.newrating.tripId = this.tripid;
+      this.newrating.userId = this.userid;
       // this.apiSerive.setTrip(this.trip)
       // this.router.navigate(['route'])
-      console.log("rating: " + this.newrating.MyRating);
-      console.log("trip: " + this.newrating.TripId);
-      console.log("user: " + this.newrating.UserId);
+      console.log("rating: " + this.newrating.myRating);
+      console.log("trip: " + this.newrating.tripId);
+      console.log("user: " + this.newrating.userId);
 
       this.TAPI.addReview(this.newrating);
 
-      this.rrouter.navigate(['trip-history']);
+      //this.rrouter.navigate(['trip-history']);
+      location.reload();
       }
       else{
         console.log("invalid form");

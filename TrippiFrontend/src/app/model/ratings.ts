@@ -1,9 +1,9 @@
 export interface ratings{
-    Id: number;
-    UserId: number;
-    TripId: number;
+    id: number;
+    userId: number;
+    tripId: number;
     
     
-    MyRating: number;
+    myRating: number;
 
 }

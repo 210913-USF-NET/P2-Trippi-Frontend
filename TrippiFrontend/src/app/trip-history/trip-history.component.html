@@ -21,7 +21,7 @@
            
                 <td *ngIf="t.username == UserName">{{t.endAddress}}</td>
             
-                <td *ngIf="t.username == UserName"><app-tripdetails [tabletripid]="t.id" class="tripdetails"></app-tripdetails></td>
+                <td *ngIf="t.username == UserName"><div *ngFor="let r of AllRatings"><p *ngIf="t.id == r.tripId">Rating = {{r.myRating}}</p></div><app-tripdetails [tabletripid]="t.id" class="tripdetails"></app-tripdetails></td>
         </tr>
     </tbody>
 </table>
