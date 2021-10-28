@@ -4,25 +4,36 @@
         <div class="row w-100 scrollable">
             <div class="col-md-14">
                 <h4>Trips</h4>
-                <table class="table">
-                    <tbody *ngFor="let trip of trips">
-                        <tr>
-                            <td>
-                                <p><b>Start Address:</b> {{trip.startAddress}}</p>
-                                <p><b>Destination:</b> {{trip.endAddress}}</p>
-                                <p><b>Rating:</b>{{trip.rating}}</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div *ngIf="(trips.length !== 0); else noTrips">
+                    <table class="table">
+                        <tbody *ngFor="let trip of trips">
+                            <tr>
+                                <td>
+                                    <p><b>Start Address:</b> {{trip.startAddress}}</p>
+                                    <p><b>Destination:</b> {{trip.endAddress}}</p>
+                                    <p><b>Rating:</b>{{trip.rating}}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ng-template #noTrips>
+                    <p>There are no trips to display...</p>
+                </ng-template>
                 <h4>Friends</h4>
-                <table class="table">
-                    <tbody>
-                        <tr *ngFor="let name of userNames">
-                            <td>{{name}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div *ngIf="(userNames.length !== 0); else noFriends">
+                    <table class="table">
+                        <tbody>
+                            <tr *ngFor="let name of userNames">
+                                <td>{{name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ng-template #noFriends>
+                    <p>There are no Friends to display...</p>
+                </ng-template>
+                
             </div>
         </div>
     </div>

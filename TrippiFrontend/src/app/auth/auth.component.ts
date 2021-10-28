@@ -3,6 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { ApiServiceService } from '../service/api-service.service';
 import { user } from '../model/user';
+import { tripInvite } from '../model/tripInvite';
 
 
 @Component({
@@ -24,6 +25,12 @@ export class AuthComponent implements OnInit {
     friends: []
   }
 
+  users: user[] = []
+  sentInvites: tripInvite[] = []
+  receivedInvites: tripInvite[] = []
+
+  counter: number = 0
+
   authuser: string | undefined = '';
 
   ngOnInit(): void {
@@ -39,8 +46,32 @@ export class AuthComponent implements OnInit {
               console.log("This is ", this.authuser);
               this.trippiService.addUser(this.user);
             }
-        });
+
+            this.trippiService.getUsers().then(result => {
+              this.users = result;
+              for (let user2 of this.users){
+                if(user2.username === user?.nickname){
+                  this.user = user2 
+                }
+              }
+      
+              this.trippiService.getTripInvites().then(tripInvites =>{
+                console.log(tripInvites)
+                for(let invite of tripInvites){
+                  if(invite.fromUserId === this.user.id){
+                    this.sentInvites.push(invite)
+                  }
+                  else if(invite.toUserId === this.user.id && invite.status === 0){
+                    this.receivedInvites.push(invite)
+                    this.counter++
+                  }
+                }
+              })
+            })
+            console.log(this.receivedInvites)
+        })
     })
 
-}
+  }
+
 }
