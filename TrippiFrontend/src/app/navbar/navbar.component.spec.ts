@@ -22,4 +22,8 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should contain image', () => {
+    const ele = fixture.debugElement.nativeElement.querySelectorAll('img');
+    expect(ele[0]['src']).toContain(`.png`);
+  });
 });

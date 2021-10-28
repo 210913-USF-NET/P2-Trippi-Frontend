@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { async, TestBed} from '@angular/core/testing';
 import { ApiServiceService } from './api-service.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { IterableDiffers } from '@angular/core';
@@ -6,8 +6,11 @@ import { user } from '../model/user';
 import { tripPost } from '../model/tripPost';
 import { isExpressionFactoryMetadata } from '@angular/compiler/src/render3/r3_factory';
 import { trip } from '../model/trip';
+import { tripStart } from '../model/tripStart';
+import { expressionType } from '@angular/compiler/src/output/output_ast';
+import { ratings } from '../model/ratings';
 // "./jasmine-core/jasmine.js"
-// import 'jasmine';
+// import { Jasmine} from './jasmine-core';
 
 describe('ApiServiceService', () => {
 
@@ -47,7 +50,36 @@ describe('ApiServiceService', () => {
  
     })
   });
-  
+  it('addReview should get a review', async() => {
+    let fakeData: ratings = 
+      {
+        id: 1,
+        userId: 4,
+        tripId: 48,
+        myRating: 5
+      }
+    
+    spyOn(service,'addReview').and.returnValue(Promise.resolve(fakeData));
+
+    await service.addReview(fakeData).then((res) => {
+      expect(res).toEqual(fakeData);
+      expect(service.addReview).toHaveBeenCalled();
+ 
+    })
+  });
+  it('setTrip should return set trip', async () => {
+    let fakeTrip  = {
+      address: "5595 Grand Dr, St Louis, MO 63112",
+      hours: 1,
+      days: 4
+  }
+    spyOn(service,'setTrip').and.returnValue()
+    await service.setTrip(fakeTrip)
+
+      expect(service.setTrip).toHaveBeenCalled();
+
+    
+  });
   it('addFriend should return a user', async () => {
     let fakeUser =  {
       id : 1,
@@ -74,13 +106,15 @@ describe('ApiServiceService', () => {
   });
   it('addTrip should return a trip', async () => {
       let fakeTrip  = {
+        id:1,
        username: "Larry",
         startAddress: "5595 Grand Dr, St Louis, MO 63112",
         endAddress: "2020 S W East Dr",
         startLat: 0.420453866,
         startLong: -0.714322323e2,
         endLat: 0.420453866e2,
-        endLong: -0.8356078468263034
+        endLong: -0.8356078468263034,
+        rating: []
     }
     spyOn(service, 'addTrip').and.returnValue(Promise.resolve(fakeTrip));
     await service.addTrip(fakeTrip).then((res) => {
@@ -100,7 +134,18 @@ describe('ApiServiceService', () => {
     expect(res.length).toEqual(0);
   })
 });
-
+it('addUser should call user', async () => {
+  let fakeUser: user =  {
+    id : 1,
+    username : 'Larry',
+    friends : []
+  }
+  spyOn(service, 'addUser');
+  await service.addUser(fakeUser);
+  expect(service.addUser).toHaveBeenCalled();
+    // expect(res.length).toEqual(0);
+  
+});
 it('getRouteOptions should return two addresses', async () => {
   let fakeTrip  = {
     address: "5595 Grand Dr, St Louis, MO 63112",
@@ -137,5 +182,20 @@ it('getTrips should get all trips', async() => {
     expect(service.getTrips).toHaveBeenCalled();
 
   })
+});
+it('getTrip should return a trip', async() => {
+  let fakeData: tripStart = {
+    address: "5595 Grand Dr, St Louis, MO 63112",
+    hours: 1,
+    days: 4
+  }
+    
+
+  spyOn(service,'getTrip');
+
+  await service.getTrip()
+
+    expect(service.getTrip).toHaveBeenCalled();
+    // expect(service.getTrip()).toEqual(fakeData);
 });
 })
