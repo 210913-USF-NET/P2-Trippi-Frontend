@@ -26,7 +26,7 @@ jobs:
           node-version: '14.x'
           
       - name: Angular Install
-        run: npm install -g @angular/cli
+        run: npm install -g @angular/cli > /dev/null
       
       - name: npm install, build
         run: |
