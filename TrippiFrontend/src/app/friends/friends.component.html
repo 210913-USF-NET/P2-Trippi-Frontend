@@ -4,10 +4,10 @@
         <div class="row w-100 scrollable">
             <div *ngIf="(user1.friends.length !== 0); else noFriends" class="col-md-14">
                 <table class="table">
-                    <tbody *ngFor="let name of usernames">
+                    <tbody *ngFor="let friend of friends">
                         <tr>
-                            <td><a class="nav-link" [routerLink]="['/friendprofile', name]">{{name}}</a></td>
-                            <td><button class="btn btn-primary btn-sm">Invite to trip</button></td>
+                            <td><a class="nav-link" [routerLink]="['/friendprofile', friend.username]">{{friend.username}}</a></td>
+                            <td><button (click)="onModal($event, friend)" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Invite to trip</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -15,8 +15,8 @@
             <ng-template #noFriends>
                 <p>You got no friends yet. Please add friends from suggestions</p>
             </ng-template>
-            <div class="col-md-12">
-                <h5>Suggestions</h5>
+            <div class="col-md-14">
+                <h5>Friend Suggestions</h5>
                 <table class="table">
                     <tbody *ngFor="let notFriend of notFriends">
                         <tr>
@@ -28,4 +28,36 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Please select a trip for {{modalFriend.username}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div *ngIf="(tripsToInvite.length !== 0); else noTrips">
+            <table class="table table-hover">
+                <tbody *ngFor="let trip of tripsToInvite">
+                    <tr (click)="onInvite($event, modalFriend, trip)">
+                        <td>
+                            <p><strong>Address: </strong>{{trip.startAddress}}</p>
+                            <p><strong>Destination: </strong>{{trip.endAddress}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <ng-template #noTrips>
+            <p>There are currently no trips to share!</p>
+        </ng-template>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+    </div>
+</div>
 </div>

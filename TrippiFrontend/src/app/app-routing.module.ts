@@ -10,6 +10,7 @@ import { FriendprofileComponent } from './friendprofile/friendprofile.component'
 import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
 import { TripHistoryComponent } from './trip-history/trip-history.component';
 import { TripdetailsComponent } from './tripdetails/tripdetails.component';
+import { TripInviteComponent } from './trip-invite/trip-invite.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,13 @@ const routes: Routes = [
   },
   {
     path: 'friends',
-    component: FriendsComponent
+    component: FriendsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'trip-invite',
+    component: TripInviteComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'home',
@@ -47,7 +54,8 @@ const routes: Routes = [
   },
   {
     path: 'friendprofile/:name',
-    component: FriendprofileComponent
+    component: FriendprofileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'trip-history/:id',

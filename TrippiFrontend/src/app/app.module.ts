@@ -20,6 +20,7 @@ import { TripHistoryComponent } from './trip-history/trip-history.component';
 import { TripdetailsComponent } from './tripdetails/tripdetails.component';
 
 import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
+import { TripInviteComponent } from './trip-invite/trip-invite.component';
 
 
 
@@ -39,7 +40,8 @@ import { ChosenTripComponent } from './chosen-trip/chosen-trip.component';
     TripdetailsComponent,
     //GooglePlaceModule
 
-    ChosenTripComponent
+    ChosenTripComponent,
+    TripInviteComponent
 
   
   ],

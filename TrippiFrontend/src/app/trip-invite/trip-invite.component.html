@@ -1,0 +1,115 @@
+<div class="card mx-auto w-50">
+    <h4 class="card-header"> Trip invites </h4>
+    <div class="card-body">
+        <div class="row w-100 scrollable">
+            <h5>Received Invites</h5>
+            <div *ngIf="(receivedInvites.length !== 0); else noReceivedInvites" class="col-md-14">
+                <table class="table">
+                    <tbody *ngFor="let trip of receivedTrips">
+                        <tr>
+                            <td>
+                                <p>
+                                    From: <strong>{{trip.username}}</strong>
+                                </p>
+                                <p>
+                                    <i>Trip Details</i> 
+                                </p>
+                                <p>
+                                    Start Address: <strong>{{trip.startAddress}}</strong> 
+                                </p>
+                                <p>
+                                    Destination: <strong>{{trip.endAddress}}</strong> 
+                                </p>
+                            </td>
+                            <div *ngIf="(trip.status === 0); else statusOne">
+                                <td><button (click)="onAccept($event, trip)" class="btn btn-primary btn-sm">Accept invitation</button></td>
+                                <td><button (click)="onDecline($event, trip)" class="btn btn-primary btn-sm">Decline invitation</button></td>
+                            </div>
+                            <ng-template #statusOne>
+                                <div *ngIf="(trip.status === 1); else statusTwo">
+                                    <td style="color:green">Accepted</td>
+                                </div>
+                            </ng-template>
+                            <ng-template #statusTwo>
+                                <td style="color:red">Declined</td>
+                            </ng-template>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ng-template #noReceivedInvites>
+                <p>You have not yet received any trip invites</p>
+            </ng-template>
+
+            <h5>Sent Invites</h5>
+            <div *ngIf="(sentTrips.length !== 0); else noSentInvites" class="col-md-14">
+                <table class="table">
+                    <tbody *ngFor="let trip of sentTrips">
+                        <tr>
+                            <td>
+                                <p>
+                                    To: <strong>{{trip.username}}</strong>
+                                </p>
+                                <p>
+                                    <i>Trip Details</i> 
+                                </p>
+                                <p>
+                                    Start Address: <strong>{{trip.startAddress}}</strong> 
+                                </p>
+                                <p>
+                                    Destination: <strong>{{trip.endAddress}}</strong> 
+                                </p>
+                            </td>
+                            <div *ngIf="(trip.status === 0); else statusOne">
+                                <td style="color:orange">Pending...</td>
+                            </div>
+                            <ng-template #statusOne>
+                                <div *ngIf="(trip.status === 1); else statusTwo">
+                                    <td style="color:green">Accepted</td>
+                                </div>
+                            </ng-template>
+                            <ng-template #statusTwo>
+                                <td style="color:red">Declined</td>
+                            </ng-template>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ng-template #noSentInvites>
+                <p>You have not sent out any trip invites</p>
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Please select a trip for {{modalFriend.username}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div *ngIf="(tripsToInvite.length !== 0); else noTrips">
+            <table class="table table-hover">
+                <tbody *ngFor="let trip of tripsToInvite">
+                    <tr (click)="onInvite($event, modalFriend, trip)">
+                        <td>
+                            <p><strong>Address: </strong>{{trip.startAddress}}</p>
+                            <p><strong>Destination: </strong>{{trip.endAddress}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <ng-template #noTrips>
+            <p>There are currently no trips to share!</p>
+        </ng-template>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+    </div>
+</div>
+</div> -->
