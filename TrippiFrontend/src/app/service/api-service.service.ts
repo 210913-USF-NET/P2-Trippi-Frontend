@@ -52,13 +52,10 @@ public myroute: tripPost = {
     return this.http.get<[]>(this.root + `POI/${tripStart.address} ${tripStart.hours} ${tripStart.days}`).toPromise();
   }
 
-  // getTrips(): Promise<tripPost[]>
-  // {
-  //   return this.http.get<[]>(this.root + `Trip/`).toPromise();
-  // }
 
 
-  addUser(user:user)
+
+  addUser(user:user) 
   {
 
     this.http.get<user[]>(this.rootUrl).toPromise().then(result => {
@@ -122,8 +119,9 @@ public myroute: tripPost = {
     this.tripStart = tripForm;  
   }  
   
-  getTrip() {  
-    return this.tripStart ;  
+  getTrip(): tripStart {  
+    return this.tripStart;
+    console.log(this.tripStart)  
   }  
   addTrip(postTrip: tripPost): Promise<tripPost>
   {
@@ -143,5 +141,10 @@ public myroute: tripPost = {
   addReview(reviewToAdd: ratings): Promise<ratings>
   {
     return this.http.post<ratings>(this.root + "/Rating", reviewToAdd).toPromise();
+  }
+
+  getReview(): Promise<ratings[]>
+  {
+    return this.http.get<ratings[]>(this.root + "/Rating").toPromise();
   }
 }

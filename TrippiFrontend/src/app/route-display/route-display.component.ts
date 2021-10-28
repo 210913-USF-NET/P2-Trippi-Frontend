@@ -93,7 +93,8 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
       console.log(this.Addresses);
     });
   }
-  selectRoute(address: string, index: number): void{
+  selectRoute(address: string, index: number): tripPost
+  {
     this.auth.user$.subscribe((user) =>{
       console.log("This is ", user);
       if(user?.nickname !== undefined){
@@ -109,5 +110,6 @@ export class RouteDisplayComponent implements OnInit, AfterViewInit{
       this.ApiService.addTrip(this.postTrip)
       this.route.navigate(['mytrip'])
     });
+    return this.postTrip
   }
 }

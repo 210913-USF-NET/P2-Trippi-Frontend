@@ -24,7 +24,7 @@ export class ChosenTripComponent implements OnInit, AfterViewInit{
     endAddress: "",
     id: 0,
     rating: null
-    // rating: number;
+  
 }
 
 map: any;

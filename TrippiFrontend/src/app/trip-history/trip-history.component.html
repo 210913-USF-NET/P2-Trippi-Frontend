@@ -1,15 +1,16 @@
-<p>trip-history works!</p>
 <div class="container">
-<h2>list of trips for {{UserName}}</h2>
+<h2>Trips taken by {{UserName}}</h2>
 
 <table class="table bg-light">
     <thead>
-        <th>Trip Creator</th>
+        <th>Username</th>
         <th>Start</th>
         <th>End</th>
+        <th>Rate Trip</th>
     </thead>
     <tbody>
-        <tr *ngFor="let t of Trips" (click)="goToTrip(t.id)">
+        <!-- <tr *ngFor="let t of Trips" (click)="goToTrip(t.id)"> -->
+        <tr *ngFor="let t of Trips">
                
             
                 <td *ngIf="t.username == UserName">{{t.username}}</td>
@@ -20,6 +21,7 @@
            
                 <td *ngIf="t.username == UserName">{{t.endAddress}}</td>
             
+                <td *ngIf="t.username == UserName"><div *ngFor="let r of AllRatings"><p *ngIf="t.id == r.tripId">Rating = {{r.myRating}}</p></div><app-tripdetails [tabletripid]="t.id" class="tripdetails"></app-tripdetails></td>
         </tr>
     </tbody>
 </table>
