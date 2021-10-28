@@ -32,7 +32,7 @@ jobs:
         working-directory: ${{env.WORKING_DIRECTORY}}
         
       - name: Tar Files
-        run: tar -cvf my_files.tar ./TrippiFrontend
+        run: zip -cvf my_files.zip ./TrippiFrontend
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
