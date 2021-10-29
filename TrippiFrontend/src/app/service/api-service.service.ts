@@ -115,6 +115,12 @@ public myroute: tripPost = {
     return this.http.get<trip>(this.root + "Trip/" + id).toPromise();
   }
 
+  addInvitedTrip(postTrip: tripPost): Promise<tripPost>
+  {
+    console.log("Here as well")
+    return this.http.post<tripPost>(this.root + "Trip",  postTrip).toPromise();
+  }
+
   setTrip( tripForm: tripStart) {      
     this.tripStart = tripForm;  
   }  

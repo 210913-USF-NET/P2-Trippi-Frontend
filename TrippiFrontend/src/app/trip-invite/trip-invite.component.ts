@@ -5,6 +5,7 @@ import { trip } from '../model/trip';
 import { tripInvite } from '../model/tripInvite';
 import { tripInviteSent } from '../model/tripInviteSent';
 import { user } from '../model/user';
+import { tripPost} from '../model/tripPost';
 import { ApiServiceService } from '../service/api-service.service';
 
 @Component({
@@ -55,6 +56,18 @@ export class TripInviteComponent implements OnInit {
     fromUserId: 0,
     tripId: 0,
     status: 0
+  }
+
+  tripPost: tripPost = {
+    id: 0,
+    username: '',
+    startAddress: '',
+    endAddress: '',
+    startLat: 0,
+    startLong: 0,
+    endLat: 0,
+    endLong: 0,
+    rating: [] 
   }
 
 
@@ -181,8 +194,19 @@ onAccept(event: Event, trip: tripInviteSent){
 
       this.fService.updateTripInvite(this.invite).then(res =>{
         console.log('Reached here')
-        alert(`Trip Invitation successfully accepted`)
-        location.reload()
+      })
+
+      this.fService.getOneTrip(trip.id).then(newTrip => {
+        this.tripPost.username = this.user.username
+        this.tripPost.startAddress = newTrip.startAddress
+        this.tripPost.endAddress = newTrip.endAddress
+
+        console.log(this.tripPost)
+        
+        this.fService.addInvitedTrip(this.tripPost).then(addedTrip =>{
+          alert(`Trip Invitation successfully accepted`)
+          location.reload()
+        })
       })
     })
   })
