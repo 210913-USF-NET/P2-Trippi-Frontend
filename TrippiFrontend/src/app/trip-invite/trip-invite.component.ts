@@ -117,6 +117,7 @@ export class TripInviteComponent implements OnInit {
 
                 this.tripInviteSent.startAddress = trip.startAddress
                 this.tripInviteSent.endAddress = trip.endAddress
+                this.tripInviteSent.tripID = trip.id
 
                 this.tripInviteSent.username = res.username
                 this.sentTrips.push(this.tripInviteSent)
@@ -196,7 +197,7 @@ onAccept(event: Event, trip: tripInviteSent){
         console.log('Reached here')
       })
 
-      this.fService.getOneTrip(trip.id).then(newTrip => {
+      this.fService.getOneTrip(trip.tripID).then(newTrip => {
         this.tripPost.username = this.user.username
         this.tripPost.startAddress = newTrip.startAddress
         this.tripPost.endAddress = newTrip.endAddress
