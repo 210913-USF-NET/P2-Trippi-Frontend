@@ -4,7 +4,7 @@
 Mariya Bukhryakova | Dan Berry | Perterclver Kimuli | Nick Yelle
 
 ## Overview
-Trippi is an app that gives a user 4 different road trip suggestions based on a user’s location, availability, and daily driving mileage. The user can create multiple trips, rate those trips, and take those trips with friends. Trippi opens up the adventure possibilities that we did not know that we had.
+Trippi is an app that gives a user 4 different road trip suggestions based on a user’s location, availability, and daily driving mileage. The user can create multiple trips, rate those trips, and take those trips with friends. Trippi opens up the adventure possibilities that we did not know we had.
 
 ## User Flow
 A user will sign in, and then be prompted to how answer where they will be starting, how many days they have to travel, and how long they want to travel per day. Trippi will create 4 different route options based on this citeria. After selecting one of the four options, the user can view their chosen route, and has the option of sharing that trip with friends. In their MyTrips tab the user can view their previous trips and the ratings given to those trips. A user can also view their friend's trip profiles. 
