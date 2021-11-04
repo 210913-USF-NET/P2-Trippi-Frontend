@@ -25,17 +25,17 @@ A user will sign in, and then be prompted to how answer where they will be start
 - Invite for participation
 
 ## User Stories
-
-As a user, I should be able to sign up for an account.
-As a user, I should be able to input start data, and receive 4 route options.
-As a user, I should be able to choose a route option and create a trip.
-As a user, I should be able to see the Trip’s amenities.
-As a user, I should be able to rate my trip.
-As a user, I should be able to see my previous trips.
-As a user, I should be able to add friends.
-As a user, I should be able to see my friend’s trips and the ratings they gave. 
-As a user, I should be able to share a trip with a friend.
-As a user, I should be able to communicate with other potential trip mates.
+As a user, 
+- I should be able to sign up for an account.
+- I should be able to input start data, and receive 4 route options.
+- I should be able to choose a route option and create a trip.
+- I should be able to see the Trip’s amenities.
+- I should be able to rate my trip.
+- I should be able to see my previous trips.
+- I should be able to add friends.
+- I should be able to see my friend’s trips and the ratings they gave. 
+- I should be able to share a trip with a friend.
+- I should be able to communicate with other potential trip mates.
 
 ## Stretch Goals
 - See the amenities along a route on a map.
