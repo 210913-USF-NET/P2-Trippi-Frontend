@@ -51,8 +51,8 @@ import { TripInviteComponent } from './trip-invite/trip-invite.component';
     AppRoutingModule,
     FormsModule,
     AuthModule.forRoot({
-      domain: environment.authDomain,
-      clientId: environment.authClientId
+      domain: 'dev-ow5ha2t0.us.auth0.com',
+      clientId: 'G9Vc3asT1QL9PR5vfNtC0zIAIlJwNpon'
     }),
     RouterModule
   
